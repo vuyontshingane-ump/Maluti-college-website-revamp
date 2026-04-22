@@ -7,3 +7,38 @@ Objectives:
 2.Provide clear access to academic and application information
 3.Create a responsive design that works across devices
 4.Lay the foundation for future system integration (student portals, applications, etc.)
+
+Features
+1.Responsive website design
+2.Clean and simple user interface
+3.Navigation bar for easy access to key pages
+4.Sections for:
+Home
+About
+Courses / Programmes
+Contact Information
+
+Tech Stack
+HTML
+CSS
+JavaScript
+GitHub (Version Control & Hosting via GitHub Pages)
+
+Live Demo:https://vuyontshingane-ump.github.io/Maluti-college-website-revamp/
+
+Project Structure:
+/frontend
+  index.html
+  styles.css
+  script.js
+
+/backend
+  /routes
+  /controllers
+  /models
+  app.js
+
+/docs
+README.md
+
+
