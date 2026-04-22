@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maluti TVET College — Redesign Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green-900:#0D2218;--green-800:#1B4332;--green-700:#235A3F;--green-600:#2D7051;
+    --green-400:#52A77B;--green-200:#A8D5BC;--green-100:#D4EAE0;--green-50:#EEF7F2;
+    --gold-800:#7C4D00;--gold-700:#A06400;--gold-600:#C8841A;--gold-400:#E5A93A;
+    --gold-200:#F5D98C;--gold-100:#FAF0C8;--gold-50:#FFFAEC;
+    --terra-700:#8B3A22;--terra-600:#C45E3E;--terra-400:#E07F62;--terra-100:#F9DDD5;
+    --cream:#F5F0E8;--white:#FFFFFF;--dark:#0F1923;--charcoal:#2C3542;
+    --text-main:#1A2530;--text-muted:#5A6B7A;--text-light:#8FA3B1;
+    --border:#D8E4DC;--border-light:#EDF3F0;
+    --radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-xl:32px;
+    --shadow-card:0 2px 20px rgba(27,67,50,0.10);
+    --shadow-hover:0 8px 40px rgba(27,67,50,0.18);
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'DM Sans',system-ui,sans-serif;
+    --font-mono:'DM Mono',monospace;
+    --nav-h:72px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--text-main);background:var(--white);line-height:1.6;font-size:15px;overflow-x:hidden}
+  img{max-width:100%;display:block}
+
+  /* ─── PAGE SYSTEM ─────────────────────────────────────── */
+  .page{display:none;min-height:100vh}
+  .page.active{display:block}
+
+  /* ─── NAVIGATION ──────────────────────────────────────── */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--green-800);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 48px;box-shadow:0 2px 24px rgba(0,0,0,0.18)}
+  .nav-logo{display:flex;align-items:center;gap:14px;cursor:pointer;text-decoration:none}
+  .logo-icon{width:46px;height:46px;background:var(--gold-400);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+  .logo-icon svg{width:28px;height:28px}
+  .logo-text h1{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--white);letter-spacing:.3px;line-height:1.2}
+  .logo-text span{font-size:10px;color:var(--green-200);letter-spacing:2px;text-transform:uppercase;font-weight:400}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-link{padding:8px 14px;color:var(--green-100);font-size:13.5px;font-weight:400;border-radius:var(--radius-sm);cursor:pointer;transition:all .2s;border:none;background:transparent;font-family:var(--font-body);letter-spacing:.2px}
+  .nav-link:hover{background:rgba(255,255,255,0.10);color:var(--white)}
+  .nav-link.active{background:rgba(255,255,255,0.15);color:var(--white);font-weight:500}
+  .nav-cta{padding:9px 20px;background:var(--gold-400);color:var(--green-800);font-size:13.5px;font-weight:600;border-radius:var(--radius-sm);cursor:pointer;border:none;font-family:var(--font-body);transition:all .2s;letter-spacing:.2px}
+  .nav-cta:hover{background:var(--gold-200);transform:translateY(-1px)}
+  .page-wrap{padding-top:var(--nav-h)}
+
+  /* ─── HERO ────────────────────────────────────────────── */
+  .hero{min-height:92vh;background:var(--green-800);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .mountain-svg{position:absolute;bottom:0;left:0;right:0;z-index:1}
+  .hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(200,132,26,0.15) 0%,transparent 60%),radial-gradient(circle at 10% 80%,rgba(82,167,123,0.12) 0%,transparent 50%)}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+  .hero-content{position:relative;z-index:5;padding:0 80px 100px;max-width:800px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,132,26,0.18);border:1px solid rgba(200,132,26,0.4);padding:6px 16px;border-radius:999px;color:var(--gold-200);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px}
+  .hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--gold-400);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .hero h2{font-family:var(--font-display);font-size:clamp(40px,5.5vw,70px);font-weight:900;color:var(--white);line-height:1.08;margin-bottom:24px;letter-spacing:-1px}
+  .hero h2 em{font-style:italic;color:var(--gold-400)}
+  .hero-sub{font-size:18px;color:var(--green-100);font-weight:300;line-height:1.65;margin-bottom:44px;max-width:560px}
+  .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .btn-primary{padding:15px 32px;background:var(--gold-400);color:var(--green-900);font-size:15px;font-weight:600;border-radius:var(--radius-md);cursor:pointer;border:none;font-family:var(--font-body);transition:all .25s;letter-spacing:.3px}
+  .btn-primary:hover{background:var(--gold-200);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,132,26,0.4)}
+  .btn-outline{padding:14px 30px;background:transparent;color:var(--white);font-size:15px;font-weight:500;border-radius:var(--radius-md);cursor:pointer;border:1.5px solid rgba(255,255,255,0.35);font-family:var(--font-body);transition:all .25s;letter-spacing:.3px}
+  .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+  .hero-stats{position:absolute;right:80px;bottom:100px;z-index:5;display:flex;flex-direction:column;gap:20px}
+  .stat-pill{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-md);padding:18px 24px;text-align:center;min-width:130px}
+  .stat-pill .num{font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--gold-400);line-height:1;display:block}
+  .stat-pill .lbl{font-size:11px;color:var(--green-100);letter-spacing:1px;text-transform:uppercase;margin-top:4px;display:block}
+
+  /* ─── QUICK ACCESS ────────────────────────────────────── */
+  .quick-access{background:var(--green-900);padding:0}
+  .qa-grid{display:grid;grid-template-columns:repeat(5,1fr)}
+  .qa-item{padding:22px 28px;display:flex;align-items:center;gap:14px;cursor:pointer;border-right:1px solid rgba(255,255,255,0.07);transition:all .2s;border-bottom:3px solid transparent}
+  .qa-item:last-child{border-right:none}
+  .qa-item:hover{background:rgba(255,255,255,0.05);border-bottom-color:var(--gold-400)}
+  .qa-icon{width:36px;height:36px;border-radius:var(--radius-sm);background:rgba(200,132,26,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px}
+  .qa-item span{font-size:13px;font-weight:500;color:var(--green-100)}
+
+  /* ─── SECTION TITLES ──────────────────────────────────── */
+  .section{padding:90px 80px}
+  .section.alt{background:var(--cream)}
+  .section.dark{background:var(--green-800)}
+  .section-tag{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--green-600);margin-bottom:14px;display:block}
+  .section-tag.light{color:var(--gold-200)}
+  .section-title{font-family:var(--font-display);font-size:clamp(30px,3.5vw,46px);font-weight:700;line-height:1.15;color:var(--text-main);margin-bottom:18px;letter-spacing:-.5px}
+  .section-title.light{color:var(--white)}
+  .section-sub{font-size:17px;color:var(--text-muted);line-height:1.7;max-width:560px}
+  .section-sub.light{color:var(--green-100)}
+  .section-head{margin-bottom:56px}
+  .section-head.row{display:flex;justify-content:space-between;align-items:flex-end}
+
+  /* ─── PROGRAMME CARDS ─────────────────────────────────── */
+  .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .prog-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition:all .3s;cursor:pointer;border:1px solid var(--border-light)}
+  .prog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+  .prog-card-header{height:160px;display:flex;align-items:flex-end;padding:24px;position:relative;overflow:hidden}
+  .prog-card-icon{position:absolute;top:24px;right:24px;width:50px;height:50px;background:rgba(255,255,255,0.15);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .prog-card-header h3{font-family:var(--font-display);font-size:20px;color:var(--white);font-weight:700;z-index:1;position:relative;line-height:1.2}
+  .prog-card-body{padding:24px}
+  .prog-card-body p{font-size:14px;color:var(--text-muted);line-height:1.65;margin-bottom:20px}
+  .prog-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:500}
+  .prog-tag.ncv{background:var(--green-100);color:var(--green-700)}
+  .prog-tag.nated{background:var(--gold-100);color:var(--gold-800)}
+  .prog-card-footer{padding:16px 24px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between}
+  .prog-card-footer span{font-size:13px;color:var(--text-muted)}
+  .prog-arrow{width:32px;height:32px;border-radius:50%;background:var(--green-50);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--green-600);transition:all .2s}
+  .prog-card:hover .prog-arrow{background:var(--green-800);color:var(--white)}
+
+  /* ─── CAMPUS STRIP ────────────────────────────────────── */
+  .campus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .campus-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:var(--radius-lg);padding:28px;cursor:pointer;transition:all .3s}
+  .campus-card:hover{background:rgba(255,255,255,0.10);border-color:rgba(200,132,26,0.4);transform:translateY(-3px)}
+  .campus-dot{width:10px;height:10px;border-radius:50%;background:var(--gold-400);margin-bottom:16px}
+  .campus-card h4{font-size:15px;font-weight:600;color:var(--white);margin-bottom:6px}
+  .campus-card p{font-size:13px;color:var(--green-200)}
+  .campus-card .campus-tag{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-400);margin-top:14px;font-weight:500}
+
+  /* ─── NEWS CARDS ──────────────────────────────────────── */
+  .news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+  .news-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--border-light);cursor:pointer;transition:all .3s}
+  .news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+  .news-img{background:var(--green-800);height:220px;display:flex;align-items:flex-end;padding:20px;position:relative}
+  .news-img.sm{height:140px}
+  .news-cat{background:var(--gold-400);color:var(--green-900);font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;letter-spacing:.5px;text-transform:uppercase}
+  .news-body{padding:22px}
+  .news-body h3{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-main);margin-bottom:10px;line-height:1.3}
+  .news-body.sm h3{font-size:15px}
+  .news-body p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+  .news-meta{font-size:12px;color:var(--text-light);display:flex;align-items:center;gap:12px}
+
+  /* ─── ABOUT PAGE ──────────────────────────────────────── */
+  .about-hero{background:var(--green-800);padding:120px 80px 80px;position:relative;overflow:hidden}
+  .about-hero::after{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(200,132,26,0.08)}
+  .about-split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-image-block{border-radius:var(--radius-xl);background:var(--green-100);height:480px;position:relative;overflow:hidden}
+  .about-image-inner{position:absolute;inset:0;background:linear-gradient(135deg,var(--green-700) 0%,var(--green-900) 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+  .about-image-inner svg{opacity:.4}
+  .about-badge-float{position:absolute;bottom:32px;left:32px;background:var(--white);border-radius:var(--radius-lg);padding:20px 24px;box-shadow:var(--shadow-hover)}
+  .about-badge-float .num{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--green-800)}
+  .about-badge-float p{font-size:13px;color:var(--text-muted);margin-top:4px}
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+  .value-card{background:var(--white);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border-light);box-shadow:var(--shadow-card)}
+  .value-icon{width:52px;height:52px;border-radius:var(--radius-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+  .value-card h4{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--text-main);margin-bottom:10px}
+  .value-card p{font-size:14px;color:var(--text-muted);line-height:1.65}
+  .timeline{position:relative;padding-left:40px}
+  .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--green-600),var(--green-100))}
+  .t-item{position:relative;margin-bottom:40px}
+  .t-item::before{content:'';position:absolute;left:-45px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--green-600);border:3px solid var(--white);box-shadow:0 0 0 2px var(--green-600)}
+  .t-year{font-family:var(--font-mono);font-size:13px;color:var(--green-600);font-weight:400;margin-bottom:4px;letter-spacing:.5px}
+  .t-item h4{font-weight:600;color:var(--text-main);font-size:15px;margin-bottom:6px}
+  .t-item p{font-size:13.5px;color:var(--text-muted);line-height:1.6}
+
+  /* ─── PROGRAMMES PAGE ─────────────────────────────────── */
+  .prog-hero{background:var(--dark);padding:120px 80px 80px;position:relative;overflow:hidden}
+  .prog-filter-bar{display:flex;gap:8px;margin-bottom:40px;padding:0 80px}
+  .filter-btn{padding:9px 22px;border-radius:999px;font-size:14px;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);font-family:var(--font-body);transition:all .2s}
+  .filter-btn.active,.filter-btn:hover{background:var(--green-800);color:var(--white);border-color:var(--green-800)}
+  .prog-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 80px 80px}
+  .prog-full-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--border-light);cursor:pointer;transition:all .3s}
+  .prog-full-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+  .pfc-top{padding:28px;background:var(--green-50);position:relative}
+  .pfc-level{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--green-600);margin-bottom:8px}
+  .pfc-top h3{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-main);line-height:1.25}
+  .pfc-body{padding:24px}
+  .pfc-detail{display:flex;justify-content:space-between;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border-light)}
+  .pfc-detail-item span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);display:block;margin-bottom:4px}
+  .pfc-detail-item strong{font-size:14px;color:var(--text-main);font-weight:600}
+  .pfc-enroll{width:100%;padding:12px;background:var(--green-800);color:var(--white);font-size:14px;font-weight:500;border-radius:var(--radius-md);border:none;cursor:pointer;font-family:var(--font-body);transition:all .2s}
+  .pfc-enroll:hover{background:var(--green-600)}
+
+  /* ─── ADMISSIONS PAGE ─────────────────────────────────── */
+  .adm-hero{background:var(--terra-700);padding:120px 80px 80px;position:relative;overflow:hidden}
+  .adm-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:60px;padding:0 80px}
+  .step-card{text-align:center;padding:36px 24px;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);border:1px solid var(--border-light);position:relative}
+  .step-num{width:52px;height:52px;border-radius:50%;background:var(--green-800);color:var(--white);font-family:var(--font-display);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .step-card h4{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-main);margin-bottom:10px}
+  .step-card p{font-size:13.5px;color:var(--text-muted);line-height:1.6}
+  .step-arrow{position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:2;font-size:20px;color:var(--gold-600)}
+  .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:0 80px 80px}
+  .req-card{background:var(--white);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-card);border:1px solid var(--border-light)}
+  .req-card h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-main);margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--green-100)}
+  .req-list{list-style:none}
+  .req-list li{font-size:14px;color:var(--text-muted);padding:10px 0;border-bottom:1px solid var(--border-light);display:flex;align-items:center;gap:12px}
+  .req-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green-600);flex-shrink:0}
+  .req-list li:last-child{border-bottom:none}
+  .adm-dates{background:var(--green-800);border-radius:var(--radius-xl);padding:48px;margin:0 80px 80px}
+  .adm-dates h3{font-family:var(--font-display);font-size:26px;color:var(--white);font-weight:700;margin-bottom:32px}
+  .dates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .date-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-lg);padding:24px}
+  .date-item .phase{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-200);margin-bottom:8px;font-weight:500}
+  .date-item h4{font-family:var(--font-display);font-size:18px;color:var(--white);font-weight:700;margin-bottom:6px}
+  .date-item p{font-size:13px;color:var(--green-200)}
+
+  /* ─── CAMPUSES PAGE ───────────────────────────────────── */
+  .campus-hero{background:var(--charcoal);padding:120px 80px 80px}
+  .campus-full-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:0 80px 80px}
+  .campus-full-card{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--border-light);cursor:pointer;transition:all .3s;display:flex}
+  .campus-full-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+  .cfc-color{width:8px;flex-shrink:0}
+  .cfc-body{padding:28px 28px 28px 24px;flex:1}
+  .cfc-body h3{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-main);margin-bottom:6px}
+  .cfc-location{font-size:13px;color:var(--green-600);font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+  .cfc-body p{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:16px}
+  .cfc-details{display:flex;gap:20px}
+  .cfc-detail span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);display:block;margin-bottom:2px}
+  .cfc-detail strong{font-size:13px;color:var(--text-main);font-weight:600}
+
+  /* ─── STUDENT SERVICES PAGE ───────────────────────────── */
+  .services-hero{background:var(--green-900);padding:120px 80px 80px}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 80px 60px}
+  .svc-card{background:var(--white);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-card);border:1px solid var(--border-light);cursor:pointer;transition:all .3s}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover);border-color:var(--green-200)}
+  .svc-icon{width:60px;height:60px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+  .svc-card h3{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--text-main);margin-bottom:12px}
+  .svc-card p{font-size:14px;color:var(--text-muted);line-height:1.65;margin-bottom:20px}
+  .svc-link{font-size:14px;color:var(--green-600);font-weight:600;display:flex;align-items:center;gap:6px}
+  .nsfas-banner{margin:0 80px 80px;background:var(--gold-50);border:1px solid var(--gold-200);border-radius:var(--radius-xl);padding:48px;display:flex;align-items:center;gap:48px}
+  .nsfas-icon{font-size:56px;flex-shrink:0}
+  .nsfas-text h3{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--gold-800);margin-bottom:12px}
+  .nsfas-text p{font-size:15px;color:var(--gold-700);line-height:1.6;max-width:520px;margin-bottom:20px}
+
+  /* ─── NEWS PAGE ───────────────────────────────────────── */
+  .news-hero{background:var(--dark);padding:120px 80px 80px}
+  .news-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 80px 80px}
+  .nfc{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);border:1px solid var(--border-light);cursor:pointer;transition:all .3s}
+  .nfc:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+  .nfc-img{height:180px;display:flex;align-items:flex-end;padding:16px}
+  .nfc-body{padding:22px}
+  .nfc-body h3{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--text-main);margin-bottom:10px;line-height:1.3}
+  .nfc-body p{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+
+  /* ─── CONTACT PAGE ────────────────────────────────────── */
+  .contact-hero{background:var(--green-800);padding:120px 80px 80px}
+  .contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;padding:80px;align-items:start}
+  .contact-info h3{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--text-main);margin-bottom:24px}
+  .contact-item{display:flex;gap:16px;margin-bottom:28px}
+  .contact-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--green-50);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .contact-item-text span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);display:block;margin-bottom:4px}
+  .contact-item-text p{font-size:14px;color:var(--text-main);line-height:1.5;font-weight:500}
+  .contact-form{background:var(--white);border-radius:var(--radius-xl);padding:44px;box-shadow:var(--shadow-hover);border:1px solid var(--border-light)}
+  .contact-form h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--text-main);margin-bottom:28px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{margin-bottom:16px}
+  .form-group label{font-size:13px;font-weight:500;color:var(--text-muted);display:block;margin-bottom:6px;letter-spacing:.3px}
+  .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-md);font-family:var(--font-body);font-size:14px;color:var(--text-main);background:var(--white);transition:border .2s;outline:none}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green-600)}
+  .form-group textarea{resize:vertical;min-height:110px;line-height:1.6}
+  .form-submit{width:100%;padding:14px;background:var(--green-800);color:var(--white);font-size:15px;font-weight:600;border-radius:var(--radius-md);border:none;cursor:pointer;font-family:var(--font-body);transition:all .25s;margin-top:8px}
+  .form-submit:hover{background:var(--green-600);transform:translateY(-1px)}
+
+  /* ─── FOOTER ──────────────────────────────────────────── */
+  .footer{background:var(--green-900);color:var(--white);padding:64px 80px 0}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:52px}
+  .footer-brand h3{font-family:var(--font-display);font-size:20px;font-weight:700;margin-bottom:8px}
+  .footer-brand p{font-size:13.5px;color:var(--green-200);line-height:1.7;margin-bottom:20px;max-width:280px}
+  .footer-socials{display:flex;gap:10px}
+  .social-btn{width:36px;height:36px;border-radius:var(--radius-sm);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .2s;color:var(--white)}
+  .social-btn:hover{background:var(--gold-400);border-color:var(--gold-400);color:var(--green-900)}
+  .footer-col h4{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green-200);margin-bottom:20px;font-weight:500}
+  .footer-links{list-style:none}
+  .footer-links li{margin-bottom:12px}
+  .footer-links li a,.footer-links li span{font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;cursor:pointer;transition:color .2s;font-weight:300}
+  .footer-links li a:hover,.footer-links li span:hover{color:var(--white)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:22px 0;display:flex;justify-content:space-between;align-items:center}
+  .footer-bottom p{font-size:13px;color:rgba(255,255,255,0.35);font-weight:300}
+  .footer-bottom-links{display:flex;gap:24px}
+  .footer-bottom-links span{font-size:13px;color:rgba(255,255,255,0.35);cursor:pointer;transition:color .2s}
+  .footer-bottom-links span:hover{color:var(--white)}
+
+  /* ─── ANNOUNCEMENT BANNER ─────────────────────────────── */
+  .announcement{background:var(--gold-400);padding:10px 80px;display:flex;align-items:center;justify-content:space-between}
+  .announcement p{font-size:13px;color:var(--green-900);font-weight:500}
+  .announcement a{font-size:13px;color:var(--green-900);font-weight:700;cursor:pointer;text-decoration:underline}
+  .ann-close{background:none;border:none;cursor:pointer;font-size:18px;color:var(--green-900);padding:0 4px}
+
+  /* ─── UTILITY ─────────────────────────────────────────── */
+  .divider{height:1px;background:var(--border-light);margin:0 80px}
+  .text-gold{color:var(--gold-600)}
+  .badge{display:inline-flex;align-items:center;padding:5px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.5px}
+  .badge-green{background:var(--green-100);color:var(--green-700)}
+  .badge-gold{background:var(--gold-100);color:var(--gold-800)}
+  .badge-terra{background:var(--terra-100);color:var(--terra-700)}
+
+  /* ─── ANIMATIONS ──────────────────────────────────────── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .page.active .hero-content{animation:fadeUp .7s ease both}
+  .page.active .hero-stats{animation:fadeUp .7s .2s ease both}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* ─── RESPONSIVE TWEAKS ───────────────────────────────── */
+  @media(max-width:1100px){
+    .prog-grid,.campus-grid,.prog-full-grid,.campus-full-grid,.news-full-grid,.services-grid{grid-template-columns:1fr 1fr}
+    .news-grid{grid-template-columns:1fr}
+    .qa-grid,.steps-grid,.dates-grid{grid-template-columns:1fr 1fr}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .contact-layout,.req-grid,.about-split{grid-template-columns:1fr}
+    .hero-stats{display:none}
+    .section,.hero-content,.contact-layout,.prog-filter-bar,.prog-full-grid,.campus-full-grid,.campus-hero,.services-hero,.req-grid,.steps-grid,.adm-dates,.nsfas-banner,.news-full-grid,.news-hero,.contact-hero,.adm-hero,.services-grid,.campus-hero,.about-hero,.footer,.prog-hero{padding-left:32px;padding-right:32px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement" id="ann">
+  <p>🎓 Applications for 2025 academic year are now open — <a onclick="showPage('admissions')">Apply before 30 November 2024</a></p>
+  <button class="ann-close" onclick="document.getElementById('ann').style.display='none'">✕</button>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <div class="logo-icon">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="8" r="4" fill="#1B4332"/>
+        <circle cx="7" cy="18" r="3.5" fill="#1B4332"/>
+        <circle cx="21" cy="18" r="3.5" fill="#1B4332"/>
+        <line x1="14" y1="12" x2="7" y2="14.5" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="14" y1="12" x2="21" y2="14.5" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="7" y1="14.5" x2="21" y2="14.5" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M14 4 L14 2" stroke="#1B4332" stroke-width="2" stroke-linecap="round"/>
+        <path d="M14 2 L14 0" stroke="#1B4332" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <h1>Maluti TVET College</h1>
+      <span>Department of Education</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+    <button class="nav-link" id="nav-about" onclick="showPage('about')">About</button>
+    <button class="nav-link" id="nav-programmes" onclick="showPage('programmes')">Programmes</button>
+    <button class="nav-link" id="nav-admissions" onclick="showPage('admissions')">Admissions</button>
+    <button class="nav-link" id="nav-campuses" onclick="showPage('campuses')">Campuses</button>
+    <button class="nav-link" id="nav-students" onclick="showPage('students')">Student Services</button>
+    <button class="nav-link" id="nav-news" onclick="showPage('news')">News</button>
+    <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+  </div>
+  <button class="nav-cta" onclick="showPage('admissions')">Apply Now →</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: HOME                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-pattern"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <!-- Mountain silhouette SVG -->
+      <svg class="mountain-svg" viewBox="0 0 1440 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 280 L0 180 L120 100 L240 160 L380 60 L520 140 L640 40 L760 130 L880 70 L1000 150 L1140 30 L1280 120 L1440 80 L1440 280 Z" fill="rgba(255,255,255,0.03)"/>
+        <path d="M0 280 L0 200 L160 140 L300 190 L440 100 L580 170 L720 80 L860 160 L1000 110 L1140 180 L1280 130 L1440 160 L1440 280 Z" fill="rgba(255,255,255,0.05)"/>
+        <path d="M0 280 L0 230 L200 180 L380 220 L520 160 L680 210 L840 150 L1000 200 L1160 170 L1320 210 L1440 190 L1440 280 Z" fill="rgba(255,255,255,0.07)"/>
+      </svg>
+      <div class="hero-content">
+        <div class="hero-badge"><span></span>Great Place · Great Choice · For Lifelong Learning</div>
+        <h2>Shaping<br/><em>futures</em> from the<br/>heart of the Maluti</h2>
+        <p class="hero-sub">A world-class Technical & Vocational Education and Training institution nestled at the majestic Maluti Mountains — empowering youth with skills that transform communities.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('admissions')">Apply for 2025 Intake →</button>
+          <button class="btn-outline" onclick="showPage('programmes')">Explore Programmes</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill"><span class="num">8</span><span class="lbl">Campuses</span></div>
+        <div class="stat-pill"><span class="num">20+</span><span class="lbl">Programmes</span></div>
+        <div class="stat-pill"><span class="num">22yrs</span><span class="lbl">Excellence</span></div>
+      </div>
+    </section>
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-access">
+      <div class="qa-grid">
+        <div class="qa-item" onclick="showPage('admissions')">
+          <div class="qa-icon">📝</div>
+          <span>Online Application</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon">📅</div>
+          <span>Academic Calendar</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon">💰</div>
+          <span>NSFAS / Bursaries</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon">📖</div>
+          <span>Student Portal</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon">📞</div>
+          <span>Contact Us</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROGRAMMES -->
+    <section class="section">
+      <div class="section-head row">
+        <div>
+          <span class="section-tag">What We Offer</span>
+          <h2 class="section-title">Programmes built<br/>for tomorrow's world</h2>
+        </div>
+        <div>
+          <p class="section-sub" style="margin-bottom:16px">Practical, industry-aligned qualifications at NQF Levels 2–6 that open doors to careers and further study.</p>
+          <button class="btn-primary" style="font-size:14px;padding:12px 24px" onclick="showPage('programmes')">View All Programmes →</button>
+        </div>
+      </div>
+      <div class="prog-grid">
+        <div class="prog-card">
+          <div class="prog-card-header" style="background:linear-gradient(135deg,#1B4332,#235A3F)">
+            <div class="prog-card-icon">🏗️</div>
+            <h3>Civil Engineering &<br/>Building Construction</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Learn the foundations of construction technology, surveying, and project management with real-world practical training.</p>
+            <span class="prog-tag ncv">NCV Level 2–4</span>
+          </div>
+          <div class="prog-card-footer">
+            <span>3 Years • Full Time</span>
+            <div class="prog-arrow">→</div>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-header" style="background:linear-gradient(135deg,#7C4D00,#A06400)">
+            <div class="prog-card-icon">💻</div>
+            <h3>Information Technology & Computer Science</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Develop skills in software development, networking, systems administration and digital literacy for the modern economy.</p>
+            <span class="prog-tag ncv">NCV Level 2–4</span>
+          </div>
+          <div class="prog-card-footer">
+            <span>3 Years • Full Time</span>
+            <div class="prog-arrow">→</div>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-header" style="background:linear-gradient(135deg,#8B3A22,#C45E3E)">
+            <div class="prog-card-icon">⚡</div>
+            <h3>Electrical Infrastructure Construction</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Hands-on training in electrical systems, wiring, industrial maintenance and renewable energy technologies.</p>
+            <span class="prog-tag nated">NATED N1–N6</span>
+          </div>
+          <div class="prog-card-footer">
+            <span>2 Years • Full Time</span>
+            <div class="prog-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <section class="section alt">
+      <div class="about-split">
+        <div>
+          <span class="section-tag">Who We Are</span>
+          <h2 class="section-title">A college rooted in community, reaching for the sky</h2>
+          <p style="font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:28px">Established on 1 September 2002, Maluti TVET College is a multi-site training provider nestled between Bethlehem and Phuthaditjhaba at the foot of the Maluti Mountains. Our logo — <em>figures holding hands</em> — represents our rainbow nation and the arrow that guides every student upward.</p>
+          <div style="display:flex;gap:32px;margin-bottom:32px">
+            <div><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--green-700)">8</div><div style="font-size:13px;color:var(--text-muted)">Campuses</div></div>
+            <div><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--green-700)">2002</div><div style="font-size:13px;color:var(--text-muted)">Est. Year</div></div>
+            <div><div style="font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--green-700)">DHET</div><div style="font-size:13px;color:var(--text-muted)">Accredited</div></div>
+          </div>
+          <button class="btn-primary" onclick="showPage('about')">Learn More About Us →</button>
+        </div>
+        <div class="about-image-block">
+          <div class="about-image-inner">
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none">
+              <path d="M10 70 L35 20 L60 45 L80 10 L110 70 Z" fill="rgba(82,167,123,0.6)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+              <path d="M0 70 L25 30 L50 50 L70 15 L95 40 L120 70 Z" fill="rgba(27,67,50,0.8)"/>
+              <circle cx="60" cy="35" r="12" fill="rgba(200,132,26,0.5)"/>
+              <line x1="60" y1="15" x2="60" y2="35" stroke="rgba(200,132,26,0.8)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="about-badge-float">
+            <div class="num">Umalusi</div>
+            <p>Fully Accredited Institution</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMPUSES STRIP -->
+    <section class="section dark">
+      <div class="section-head">
+        <span class="section-tag light">Our Reach</span>
+        <h2 class="section-title light">Eight campuses across<br/>the Free State</h2>
+      </div>
+      <div class="campus-grid">
+        <div class="campus-card" onclick="showPage('campuses')">
+          <div class="campus-dot"></div>
+          <h4>Main Campus</h4>
+          <p>Phuthaditjhaba, QwaQwa</p>
+          <p class="campus-tag">Head Office</p>
+        </div>
+        <div class="campus-card" onclick="showPage('campuses')">
+          <div class="campus-dot"></div>
+          <h4>Bethlehem Campus</h4>
+          <p>Bethlehem, Free State</p>
+          <p class="campus-tag">Corporate Office</p>
+        </div>
+        <div class="campus-card" onclick="showPage('campuses')">
+          <div class="campus-dot"></div>
+          <h4>Harrismith Campus</h4>
+          <p>Harrismith, Free State</p>
+          <p class="campus-tag">Technical Focus</p>
+        </div>
+        <div class="campus-card" onclick="showPage('campuses')">
+          <div class="campus-dot" style="background:var(--terra-400)"></div>
+          <h4>Itemoheleng Campus</h4>
+          <p>Phuthaditjhaba</p>
+          <p class="campus-tag" style="color:var(--terra-400)">+ 4 More Campuses</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS PREVIEW -->
+    <section class="section">
+      <div class="section-head row">
+        <div>
+          <span class="section-tag">Latest Updates</span>
+          <h2 class="section-title">News & Events</h2>
+        </div>
+        <button class="btn-primary" style="font-size:13px;padding:11px 22px" onclick="showPage('news')">All News →</button>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-img" style="background:linear-gradient(135deg,#1B4332,#52A77B)">
+            <span class="news-cat">Announcement</span>
+          </div>
+          <div class="news-body">
+            <h3>2025 Application Season Now Open — Apply Before 30 November</h3>
+            <p>Maluti TVET College officially opens applications for the 2025 academic year across all eight campuses and all NCV and NATED programmes.</p>
+            <div class="news-meta"><span>📅 October 2024</span><span>📖 3 min read</span></div>
+          </div>
+        </div>
+        <div class="news-card" style="display:flex;flex-direction:column">
+          <div class="news-img sm" style="background:linear-gradient(135deg,#7C4D00,#C8841A)">
+            <span class="news-cat">Partnership</span>
+          </div>
+          <div class="news-body sm">
+            <h3>British Council International Skills Seminar — Maluti Delegation</h3>
+            <div class="news-meta"><span>📅 September 2024</span></div>
+          </div>
+        </div>
+        <div class="news-card" style="display:flex;flex-direction:column">
+          <div class="news-img sm" style="background:linear-gradient(135deg,#8B3A22,#E07F62)">
+            <span class="news-cat">Student Life</span>
+          </div>
+          <div class="news-body sm">
+            <h3>NSFAS Applications for 2025 — Step-by-Step Guide for New Students</h3>
+            <div class="news-meta"><span>📅 October 2024</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section style="background:var(--gold-400);padding:80px;text-align:center">
+      <h2 style="font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:900;color:var(--green-900);margin-bottom:16px">Your future starts at Maluti TVET</h2>
+      <p style="font-size:17px;color:var(--green-800);margin-bottom:36px;font-weight:300">Join thousands of graduates who have transformed their lives through quality vocational education.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-primary" style="background:var(--green-800);color:var(--white)" onclick="showPage('admissions')">Apply Now — Free Application</button>
+        <button class="btn-outline" style="border-color:var(--green-800);color:var(--green-900)" onclick="showPage('programmes')">Browse Programmes</button>
+      </div>
+    </section>
+
+  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Maluti TVET College</h3>
+        <p>A multi-site TVET provider committed to quality education and training that empowers communities across the Free State.</p>
+        <div class="footer-socials">
+          <div class="social-btn">f</div>
+          <div class="social-btn">t</div>
+          <div class="social-btn">in</div>
+          <div class="social-btn">▶</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Programmes</h4>
+        <ul class="footer-links">
+          <li><span>NCV Programmes</span></li>
+          <li><span>NATED Programmes</span></li>
+          <li><span>Learnerships</span></li>
+          <li><span>Short Courses</span></li>
+          <li><span>Skills Programmes</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><span onclick="showPage('admissions')">Apply Online</span></li>
+          <li><span>Student Portal</span></li>
+          <li><span>NSFAS Info</span></li>
+          <li><span>Academic Calendar</span></li>
+          <li><span>Exam Results</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><span>Mampoi Road, Phuthaditjhaba</span></li>
+          <li><span>Tel: 058 713 6100</span></li>
+          <li><span>Tel: 058 713 0612</span></li>
+          <li><span>Fraud Hotline: 0800 333 178</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Maluti TVET College · Department of Higher Education & Training</p>
+      <div class="footer-bottom-links">
+        <span>Privacy Policy</span>
+        <span>Terms of Use</span>
+        <span>Accessibility</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: ABOUT                                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-wrap">
+    <section class="about-hero">
+      <div style="position:relative;z-index:1">
+        <span class="section-tag" style="color:var(--gold-200)">Who We Are</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;max-width:700px">More than a college —<br/><em style="color:var(--gold-400)">a community of growth</em></h2>
+        <p style="font-size:18px;color:var(--green-100);font-weight:300;max-width:580px;line-height:1.7">Founded in 2002, Maluti TVET College has grown into the North Eastern Free State's premier vocational training institution, serving thousands of students across eight campuses.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="about-split">
+        <div>
+          <span class="section-tag">Our Story</span>
+          <h2 class="section-title">Forged from six institutions, united by purpose</h2>
+          <p style="color:var(--text-muted);line-height:1.8;font-size:15px;margin-bottom:20px">On 1 September 2002, the MEC for the Free State Department of Education merged six former colleges — Bonamelo, Sefikeng, Itemoheleng, Bethlehem, Kwetlisong and Lere la Tshepe — into one unified institution: Maluti TVET College.</p>
+          <p style="color:var(--text-muted);line-height:1.8;font-size:15px;margin-bottom:28px">Our logo captures this spirit beautifully: <strong>figures holding hands</strong> symbolise our rainbow nation's strength in diversity; the <strong>upward arrow</strong> represents that every student who passes through our doors can touch the sky.</p>
+          <div style="background:var(--green-50);border-left:4px solid var(--green-600);padding:20px 24px;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:28px">
+            <p style="font-family:var(--font-display);font-size:17px;color:var(--green-800);font-style:italic;line-height:1.5">"To provide excellence, innovation and success that inspires entrepreneurship and employability to transform lives."</p>
+            <p style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500">— Maluti TVET College Vision</p>
+          </div>
+        </div>
+        <div>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-year">2002</div>
+              <h4>Established</h4>
+              <p>Six former colleges and technical schools merged to form Maluti TVET College under the Free State Department of Education.</p>
+            </div>
+            <div class="t-item">
+              <div class="t-year">2004</div>
+              <h4>Umalusi Accreditation</h4>
+              <p>The college receives full accreditation from Umalusi and several Sector Education and Training Authorities (SETAs).</p>
+            </div>
+            <div class="t-item">
+              <div class="t-year">2009</div>
+              <h4>NCV Curriculum Introduced</h4>
+              <p>Maluti rolls out the National Certificate Vocational programme at NQF levels 2, 3 and 4 across all campuses.</p>
+            </div>
+            <div class="t-item">
+              <div class="t-year">2018</div>
+              <h4>British Council Partnership</h4>
+              <p>International collaboration through the "Bringing the Learning Home" Skills Partnerships Seminar programme.</p>
+            </div>
+            <div class="t-item">
+              <div class="t-year">2024</div>
+              <h4>Digital Transformation</h4>
+              <p>Launch of the new student online portal and e-learning platform serving all eight campuses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-head" style="text-align:center;margin-bottom:40px">
+        <span class="section-tag" style="display:block;text-align:center">Our Values</span>
+        <h2 class="section-title" style="margin:0 auto">What drives everything we do</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h4>Diversity & Inclusion</h4>
+          <p>We celebrate the richness of South Africa's rainbow nation. Strength lies in our diversity — every student belongs here.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏆</div>
+          <h4>Excellence</h4>
+          <p>We uphold the highest standards of education and training, aligned with DHET, Umalusi, and industry expectations.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h4>Community Partnership</h4>
+          <p>We build vital relationships locally and nationally, drawing on scholarship and discovery to transform lives.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h4>Innovation</h4>
+          <p>We embrace new methods, technologies and international partnerships to keep our programmes relevant and forward-looking.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📈</div>
+          <h4>Employability</h4>
+          <p>Every programme is designed to produce graduates who are career-ready, entrepreneurially capable and economically active.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🛡️</div>
+          <h4>Integrity</h4>
+          <p>We operate with transparency, accountability and ethical standards that sustain public confidence in our institution.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Maluti TVET College</h3><p>Empowering communities through quality vocational education since 2002.</p></div>
+      <div class="footer-col"><h4>Institution</h4><ul class="footer-links"><li><span onclick="showPage('about')">About Us</span></li><li><span onclick="showPage('campuses')">Our Campuses</span></li><li><span onclick="showPage('news')">News & Events</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div>
+      <div class="footer-col"><h4>Students</h4><ul class="footer-links"><li><span onclick="showPage('programmes')">Programmes</span></li><li><span onclick="showPage('admissions')">Admissions</span></li><li><span onclick="showPage('students')">Student Services</span></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><span>058 713 6100</span></li><li><span>Phuthaditjhaba, 9866</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 Maluti TVET College</p><div class="footer-bottom-links"><span>Privacy</span><span>Terms</span></div></div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: PROGRAMMES                                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-programmes">
+  <div class="page-wrap">
+    <section class="prog-hero" style="padding:120px 80px 60px">
+      <span class="section-tag" style="color:var(--gold-200)">What We Offer</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;max-width:680px">Programmes that power<br/><em style="color:var(--gold-400)">real careers</em></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;max-width:540px;line-height:1.7">Choose from NCV (NQF Levels 2–4) and NATED (N1–N6) qualifications across engineering, business, IT and more — all accredited by Umalusi and SETAs.</p>
+    </section>
+    <div class="prog-filter-bar">
+      <button class="filter-btn active">All Programmes</button>
+      <button class="filter-btn">NCV (Levels 2–4)</button>
+      <button class="filter-btn">NATED (N1–N6)</button>
+      <button class="filter-btn">Engineering & Technology</button>
+      <button class="filter-btn">Business & Commerce</button>
+      <button class="filter-btn">Education</button>
+    </div>
+    <div class="prog-full-grid">
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,var(--green-50),var(--green-100))">
+          <div class="pfc-level">NCV · NQF Level 2–4</div>
+          <h3>Civil Engineering & Building Construction</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>3 Years</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Covers construction technology, surveying, structural design and project management with extensive workshop practicals.</p>
+          <button class="pfc-enroll">Enrol Now →</button>
+        </div>
+      </div>
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,#FFF9EC,#FAF0C8)">
+          <div class="pfc-level" style="color:var(--gold-700)">NATED · N1–N6</div>
+          <h3>Electrical Engineering (Heavy Current)</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>3 Years</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Industrial wiring, electrical installation, motors, transformers and power systems — from N1 theory to N6 with 18-month trade experience.</p>
+          <button class="pfc-enroll" style="background:var(--gold-700)">Enrol Now →</button>
+        </div>
+      </div>
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,#FFF0EC,var(--terra-100))">
+          <div class="pfc-level" style="color:var(--terra-700)">NCV · NQF Level 2–4</div>
+          <h3>Information Technology & Computer Science</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>3 Years</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Programming, networking, system support and digital literacy — preparing students for the 4th Industrial Revolution economy.</p>
+          <button class="pfc-enroll" style="background:var(--terra-700)">Enrol Now →</button>
+        </div>
+      </div>
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,var(--green-50),var(--green-100))">
+          <div class="pfc-level">NATED · N1–N6</div>
+          <h3>Mechanical Engineering</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>3 Years</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Engineering drawing, fitting & turning, machine design, fluid mechanics and thermodynamics for the manufacturing sector.</p>
+          <button class="pfc-enroll">Enrol Now →</button>
+        </div>
+      </div>
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,#FFF9EC,#FAF0C8)">
+          <div class="pfc-level" style="color:var(--gold-700)">NCV · NQF Level 2–4</div>
+          <h3>Business, Commerce & Management</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>3 Years</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Entrepreneurship, financial management, marketing, economics and business administration for future business leaders.</p>
+          <button class="pfc-enroll" style="background:var(--gold-700)">Enrol Now →</button>
+        </div>
+      </div>
+
+      <div class="prog-full-card">
+        <div class="pfc-top" style="background:linear-gradient(135deg,#F0F4FF,#E0E8FF)">
+          <div class="pfc-level" style="color:#3B5BDB">NATED · N4–N6</div>
+          <h3>Education & Development (EDUDEV)</h3>
+        </div>
+        <div class="pfc-body">
+          <div class="pfc-detail">
+            <div class="pfc-detail-item"><span>Duration</span><strong>18 Months</strong></div>
+            <div class="pfc-detail-item"><span>Study Mode</span><strong>Full Time</strong></div>
+            <div class="pfc-detail-item"><span>Campus</span><strong>Multiple</strong></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:20px">Educational psychology, theory and practice combined with practical teaching experience — gateway to higher education studies.</p>
+          <button class="pfc-enroll" style="background:#3B5BDB">Enrol Now →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>Quality vocational education across 8 campuses.</p></div><div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('admissions')">Apply</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><span>058 713 6100</span></li></ul></div><div class="footer-col"><h4>Portals</h4><ul class="footer-links"><li><span>Student Portal</span></li><li><span>NSFAS</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College</p></div></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: ADMISSIONS                                       -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-admissions">
+  <div class="page-wrap">
+    <section class="adm-hero">
+      <div style="position:relative;z-index:1">
+        <span class="section-tag" style="color:var(--terra-100)">How to Join Us</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;max-width:700px">Your journey starts<br/>with a single step</h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.7);font-weight:300;max-width:540px;line-height:1.7">Applying to Maluti TVET College is simple, free, and fully online. Follow the four steps below and we'll guide you every step of the way.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head" style="text-align:center">
+        <span class="section-tag" style="display:block;text-align:center">Application Process</span>
+        <h2 class="section-title" style="margin:0 auto">Four simple steps to enrolment</h2>
+      </div>
+    </section>
+    <div class="steps-grid" style="padding:0 80px;margin-bottom:80px">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Choose Your Programme</h4>
+        <p>Browse our NCV and NATED offerings and select the programme that matches your career goals and academic background.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Prepare Your Documents</h4>
+        <p>Gather your Grade 9/11/12 results, ID document or birth certificate, proof of address, and school reports.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Submit Online Application</h4>
+        <p>Complete and submit your application through the official Maluti Coltech portal at maluti.coltech.co.za — free of charge.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num" style="background:var(--gold-600)">4</div>
+        <h4>Registration & Orientation</h4>
+        <p>Once accepted, attend registration at your preferred campus and meet your lecturers and fellow students at orientation.</p>
+      </div>
+    </div>
+
+    <div class="req-grid">
+      <div class="req-card">
+        <h3>NCV Programme Requirements</h3>
+        <ul class="req-list">
+          <li>Grade 9 certificate or equivalent for NCV Level 2</li>
+          <li>Grade 11 for direct entry into NCV Level 3</li>
+          <li>Grade 12 (Matric) for NCV Level 4 lateral entry</li>
+          <li>Certified copy of identity document or birth certificate</li>
+          <li>Most recent school report cards</li>
+          <li>Proof of residential address (recent utility bill)</li>
+          <li>Two passport-size photographs</li>
+        </ul>
+      </div>
+      <div class="req-card">
+        <h3>NATED Programme Requirements</h3>
+        <ul class="req-list">
+          <li>Grade 12 (Matric) pass for N1 entry</li>
+          <li>Mathematics or Physical Science for Engineering streams</li>
+          <li>Certified copy of identity document</li>
+          <li>Certified copy of highest qualification</li>
+          <li>Proof of residential address</li>
+          <li>Two passport-size photographs</li>
+          <li>18 months trade experience required for diploma (N6)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="adm-dates">
+      <h3>Important Dates — 2025 Academic Year</h3>
+      <div class="dates-grid">
+        <div class="date-item">
+          <div class="phase">Phase 1</div>
+          <h4>Applications Open</h4>
+          <p>1 October — 30 November 2024</p>
+        </div>
+        <div class="date-item">
+          <div class="phase">Phase 2</div>
+          <h4>Registration Period</h4>
+          <p>6 — 17 January 2025</p>
+        </div>
+        <div class="date-item">
+          <div class="phase">Phase 3</div>
+          <h4>Academic Year Begins</h4>
+          <p>20 January 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <section style="padding:0 80px 80px;text-align:center">
+      <h2 style="font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--text-main);margin-bottom:14px">Ready to apply?</h2>
+      <p style="font-size:16px;color:var(--text-muted);margin-bottom:32px">Applications are free. Start your application on the official student portal.</p>
+      <button class="btn-primary" style="font-size:16px;padding:16px 40px">Start Application at maluti.coltech.co.za →</button>
+    </section>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>Free applications. Real opportunities. Life-changing outcomes.</p></div><div class="footer-col"><h4>Navigate</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('programmes')">Programmes</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div><div class="footer-col"><h4>Help</h4><ul class="footer-links"><li><span>Admissions FAQ</span></li><li><span>Student Portal</span></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><span>058 713 6100</span></li><li><span>Phuthaditjhaba</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College</p></div></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: CAMPUSES                                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-campuses">
+  <div class="page-wrap">
+    <section class="campus-hero">
+      <span class="section-tag" style="color:var(--gold-200)">Our Locations</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;max-width:680px">Eight campuses.<br/><em style="color:var(--gold-400)">One Maluti family.</em></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;max-width:560px;line-height:1.7">From QwaQwa to Harrismith, our campuses are spread across the North Eastern Free State — bringing quality education closer to every community.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="section-tag">Find Your Campus</span><h2 class="section-title">Choose the campus closest to you</h2></div>
+    </section>
+    <div class="campus-full-grid">
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--green-600)"></div><div class="cfc-body"><h3>Main Campus</h3><div class="cfc-location">📍 Phuthaditjhaba, QwaQwa 9866</div><p>The administrative heart of Maluti TVET College. Houses the central offices, main lecture halls and specialised workshops for engineering programmes.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>058 713 6100</strong></div><div class="cfc-detail"><span>Type</span><strong>Central Office</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--gold-600)"></div><div class="cfc-body"><h3>Bethlehem Campus</h3><div class="cfc-location">📍 Bethlehem, Free State</div><p>The Corporate Office campus, located in the vibrant town of Bethlehem. Offers engineering, business and IT programmes with modern facilities.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>058 303 1722</strong></div><div class="cfc-detail"><span>Type</span><strong>Corporate Office</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--terra-600)"></div><div class="cfc-body"><h3>Harrismith Campus</h3><div class="cfc-location">📍 Harrismith, Free State</div><p>Serving the Harrismith community with strong engineering and business programmes, strategically located on the N3 corridor.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>058 622 2785</strong></div><div class="cfc-detail"><span>Type</span><strong>Regional Campus</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:#3B5BDB"></div><div class="cfc-body"><h3>Itemoheleng Campus</h3><div class="cfc-location">📍 Phuthaditjhaba, QwaQwa</div><p>A key campus in the QwaQwa area, offering NCV programmes in technology and business, with dedicated student support services.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>058 713 0296</strong></div><div class="cfc-detail"><span>Type</span><strong>Regional Campus</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:#7048E8"></div><div class="cfc-body"><h3>Bonamelo Campus</h3><div class="cfc-location">📍 Phuthaditjhaba, QwaQwa</div><p>Former college of education, now offering a blend of education development and vocational programmes to the QwaQwa community.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>058 713 0612</strong></div><div class="cfc-detail"><span>Type</span><strong>Education Focus</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--green-400)"></div><div class="cfc-body"><h3>Kwetlisong Campus</h3><div class="cfc-location">📍 Riverside, Free State</div><p>Set in the scenic Riverside area, Kwetlisong Campus delivers quality engineering and technical training programmes.</p><div class="cfc-details"><div class="cfc-detail"><span>Tel</span><strong>087 941 6839</strong></div><div class="cfc-detail"><span>Type</span><strong>Technical Campus</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--gold-400)"></div><div class="cfc-body"><h3>Sefikeng Campus</h3><div class="cfc-location">📍 Phuthaditjhaba, QwaQwa</div><p>A former college of education offering education development and NCV programmes. Rich history and vibrant student community.</p><div class="cfc-details"><div class="cfc-detail"><span>Type</span><strong>Education Focus</strong></div></div></div></div>
+      <div class="campus-full-card"><div class="cfc-color" style="background:var(--terra-400)"></div><div class="cfc-body"><h3>Lere la Tshepe Campus</h3><div class="cfc-location">📍 Tseki Village, Free State</div><p>Serving rural communities in Tseki Village, bringing TVET education directly to underserved areas of the Free State.</p><div class="cfc-details"><div class="cfc-detail"><span>Type</span><strong>Community Campus</strong></div></div></div></div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>8 campuses. 1 family. Limitless futures.</p></div><div class="footer-col"><h4>Navigate</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('programmes')">Programmes</span></li><li><span onclick="showPage('admissions')">Apply</span></li></ul></div><div class="footer-col"><h4>Help</h4><ul class="footer-links"><li><span onclick="showPage('contact')">Contact Us</span></li></ul></div><div class="footer-col"><h4>Fraud Hotline</h4><ul class="footer-links"><li><span>0800 333 178</span></li><li><span>Whistle Blower Service</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College</p></div></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: STUDENT SERVICES                                 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-students">
+  <div class="page-wrap">
+    <section class="services-hero">
+      <span class="section-tag" style="color:var(--gold-200)">For Our Students</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;max-width:680px">Everything you need<br/><em style="color:var(--gold-400)">to thrive and succeed</em></h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;max-width:540px;line-height:1.7">From financial aid to counselling, sports and online learning — Maluti TVET College supports you beyond the classroom.</p>
+    </section>
+
+    <section style="padding:80px 80px 40px">
+      <div class="section-head"><span class="section-tag">Student Support</span><h2 class="section-title">Services designed around you</h2></div>
+    </section>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--gold-100)">💰</div>
+        <h3>NSFAS Financial Aid</h3>
+        <p>The National Student Financial Aid Scheme provides funding support to academically performing yet financially needy students. We guide you through the application process.</p>
+        <div class="svc-link">Apply for NSFAS →</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-50)">📚</div>
+        <h3>Online Learning Portal</h3>
+        <p>Access course materials, submit assignments, view results and communicate with lecturers through the Maluti Moodle e-learning platform — available 24/7.</p>
+        <div class="svc-link">Visit Moodle Portal →</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--terra-100)">🏋️</div>
+        <h3>Sports & Recreation</h3>
+        <p>Enhance your social wellbeing while you study. Our campuses offer sporting facilities and student recreation programmes that build teamwork and leadership.</p>
+        <div class="svc-link">Student Life →</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:#EEF0FF">🧠</div>
+        <h3>Student Counselling</h3>
+        <p>Professional counselling services are available at all campuses to support students through academic challenges, personal issues and career guidance.</p>
+        <div class="svc-link">Book a Session →</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--green-50)">🌐</div>
+        <h3>International Partnerships</h3>
+        <p>Through the British Council "Bringing the Learning Home" annual seminar, students gain exposure to international best practices in vocational education.</p>
+        <div class="svc-link">Learn More →</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon" style="background:var(--gold-50)">🎓</div>
+        <h3>Career & Job Placement</h3>
+        <p>Our relationships with SETAs and industry partners create workplace experience and job placement pathways for graduating students.</p>
+        <div class="svc-link">Career Services →</div>
+      </div>
+    </div>
+
+    <div class="nsfas-banner">
+      <div class="nsfas-icon">💡</div>
+      <div class="nsfas-text">
+        <h3>NSFAS Funding — Don't Miss Out</h3>
+        <p>If you are academically capable but financially unable to afford your studies, NSFAS can cover your tuition, accommodation and living allowances. Applications open annually in September.</p>
+        <button class="btn-primary" style="background:var(--gold-600);font-size:14px;padding:12px 28px">Start NSFAS Application →</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>Investing in students, transforming communities.</p></div><div class="footer-col"><h4>Navigate</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('admissions')">Admissions</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div><div class="footer-col"><h4>Portals</h4><ul class="footer-links"><li><span>Student Portal</span></li><li><span>Moodle Portal</span></li><li><span>Exam Results</span></li></ul></div><div class="footer-col"><h4>Help</h4><ul class="footer-links"><li><span>Fraud Hotline: 0800 333 178</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College</p></div></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: NEWS                                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-news">
+  <div class="page-wrap">
+    <section class="news-hero">
+      <span class="section-tag" style="color:var(--gold-200)">Stay Informed</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px">News &amp; Events</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;max-width:540px;line-height:1.7">The latest from Maluti TVET College — announcements, academic news, campus events, and student achievements.</p>
+    </section>
+    <section class="section">
+      <div class="prog-filter-bar" style="padding:0;margin-bottom:40px">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Announcements</button>
+        <button class="filter-btn">Events</button>
+        <button class="filter-btn">Student Life</button>
+        <button class="filter-btn">Partnerships</button>
+      </div>
+      <div class="news-full-grid">
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,var(--green-800),var(--green-600))"><span class="news-cat">Announcement</span></div><div class="nfc-body"><h3>2025 Applications Now Open — Apply Before 30 November 2024</h3><p>Maluti TVET College officially opens applications for the upcoming academic year across all campuses and programmes.</p><div class="news-meta"><span>📅 Oct 2024</span><span>📖 3 min</span></div></div></div>
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,var(--gold-800),var(--gold-600))"><span class="news-cat">Partnership</span></div><div class="nfc-body"><h3>British Council Skills Seminar — Maluti Delegation Returns</h3><p>Staff members return from the "Bringing the Learning Home" international seminar with fresh insights to elevate teaching standards.</p><div class="news-meta"><span>📅 Sept 2024</span><span>📖 4 min</span></div></div></div>
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,var(--terra-700),var(--terra-400))"><span class="news-cat">Student Life</span></div><div class="nfc-body"><h3>NSFAS 2025 — Step-by-Step Application Guide for New Students</h3><p>Everything you need to know about applying for financial aid as a first-time TVET student in South Africa.</p><div class="news-meta"><span>📅 Oct 2024</span><span>📖 5 min</span></div></div></div>
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,#3B5BDB,#748FFC)"><span class="news-cat">Events</span></div><div class="nfc-body"><h3>Itemoheleng Campus: External Examination Prelims Sign-Off Deadline</h3><p>All NCV students are reminded to visit the Coltech office to verify and sign their preliminary external examination schedules before submission to DHET.</p><div class="news-meta"><span>📅 Jul 2025</span><span>📖 2 min</span></div></div></div>
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,#7048E8,#9775FA)"><span class="news-cat">Achievement</span></div><div class="nfc-body"><h3>Maluti TVET Graduates Secure Placements with Major Free State Employers</h3><p>This year's class of N6 engineering graduates has achieved an exceptional 78% placement rate through our SETA partnerships.</p><div class="news-meta"><span>📅 Aug 2024</span><span>📖 3 min</span></div></div></div>
+        <div class="nfc"><div class="nfc-img" style="background:linear-gradient(135deg,var(--green-900),var(--charcoal))"><span class="news-cat">Academic</span></div><div class="nfc-body"><h3>New Digital Learning Lab Opens at Main Campus — Phuthaditjhaba</h3><p>A brand-new computer lab with 60 high-spec workstations and fibre internet has been opened to serve IT and Business students.</p><div class="news-meta"><span>📅 Mar 2024</span><span>📖 3 min</span></div></div></div>
+      </div>
+    </section>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>Celebrating student success across the Free State.</p></div><div class="footer-col"><h4>Navigate</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('about')">About</span></li><li><span onclick="showPage('contact')">Contact</span></li></ul></div><div class="footer-col"><h4>Quick</h4><ul class="footer-links"><li><span onclick="showPage('admissions')">Apply</span></li><li><span onclick="showPage('students')">Student Services</span></li></ul></div><div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><span>058 713 6100</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College</p></div></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PAGE: CONTACT                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-wrap">
+    <section class="contact-hero">
+      <span class="section-tag" style="color:var(--gold-200)">Get In Touch</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px">We're here to help</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.6);font-weight:300;max-width:540px;line-height:1.7">Have a question about admissions, programmes or student services? Our team is ready to assist you.</p>
+    </section>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <div class="contact-item">
+          <div class="contact-icon">🏛️</div>
+          <div class="contact-item-text"><span>Main Campus (Central Office)</span><p>Mampoi Road, Phuthaditjhaba, QwaQwa, 9866</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-text"><span>Main Switchboard</span><p>058 713 6100<br/>058 713 0612</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏢</div>
+          <div class="contact-item-text"><span>Bethlehem (Corporate Office)</span><p>Tel: 058 303 1722 / 2156</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏫</div>
+          <div class="contact-item-text"><span>Harrismith Campus</span><p>Tel: 058 622 2785</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🚨</div>
+          <div class="contact-item-text"><span>Fraud Hotline (Whistle Blower)</span><p>0800 333 178 (Toll Free)</p></div>
+        </div>
+        <div style="background:var(--green-50);border-radius:var(--radius-lg);padding:24px;margin-top:8px">
+          <p style="font-size:13px;color:var(--green-700);font-weight:500;margin-bottom:6px">📅 Office Hours</p>
+          <p style="font-size:14px;color:var(--text-muted)">Monday – Friday: 08:00 – 16:00<br/>Saturday – Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Your first name"/></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Your last name"/></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+27 XX XXX XXXX"/></div>
+        <div class="form-group"><label>Enquiry Type</label>
+          <select>
+            <option>Select enquiry type</option>
+            <option>Admissions & Applications</option>
+            <option>Programme Information</option>
+            <option>NSFAS & Financial Aid</option>
+            <option>Student Services</option>
+            <option>Campus Information</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Your Message</label><textarea placeholder="How can we help you?"></textarea></div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-grid"><div class="footer-brand"><h3>Maluti TVET College</h3><p>Always here for our students and community.</p></div><div class="footer-col"><h4>Navigate</h4><ul class="footer-links"><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('about')">About</span></li><li><span onclick="showPage('programmes')">Programmes</span></li></ul></div><div class="footer-col"><h4>Students</h4><ul class="footer-links"><li><span onclick="showPage('admissions')">Apply</span></li><li><span onclick="showPage('students')">Services</span></li></ul></div><div class="footer-col"><h4>Emergency</h4><ul class="footer-links"><li><span>Fraud Hotline</span></li><li><span>0800 333 178</span></li></ul></div></div><div class="footer-bottom"><p>© 2024 Maluti TVET College · Department of Higher Education & Training</p></div></footer>
+</div>
+
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  const target=document.getElementById('page-'+id);
+  if(target){target.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+  const navBtn=document.getElementById('nav-'+id);
+  if(navBtn)navBtn.classList.add('active');
+  const filterBtns=document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(b=>b.addEventListener('click',function(){filterBtns.forEach(x=>x.classList.remove('active'));this.classList.add('active')}));
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',function(){
+      const parent=this.closest('.prog-filter-bar');
+      parent.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+</body>
+</html>
