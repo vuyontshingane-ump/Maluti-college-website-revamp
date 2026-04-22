@@ -18,7 +18,7 @@ About
 Courses / Programmes
 Contact Information
 
-Tech Stack
+Tech Stack:
 HTML
 CSS
 JavaScript
@@ -40,5 +40,39 @@ Project Structure:
 
 /docs
 README.md
+
+Deployment:The frontend of the project is deployed using GitHub Pages, providing a fast and reliable way to host static web applications.The backend structure has been prepared for future deployment using cloud platforms such as Render or Heroku.
+Backend (API Structure):
+A basic backend architecture has been outlined to demonstrate understanding of scalable application structure.
+
+This includes:
+Routes (handling requests)
+Controllers (business logic)
+Models (data structure)
+
+This structure allows for future integration of:
+Student data management
+Online applications
+Authentication systems
+
+Future Improvements:
+1.Full backend API development
+2.Student portal (login system)
+3.Online application system
+4.Database integration
+5.CRM (Customer/Student Management System)
+6.ERP system for academic and administrative processes
+7.Cloud-based infrastructure for scalability
+
+
+Project Approach:
+This project was developed with a focus on simplicity, clarity, and scalability.
+Rather than overcomplicating the design, the approach was to:
+
+1.Build a clean and functional frontend
+2.Ensure accessibility and responsiveness
+3.Prepare the foundation for a full-stack application
+
+AUTHOR-VUYO NTSHINGANE
 
 
