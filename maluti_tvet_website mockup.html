@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maluti TVET College – Great Place. Great Choice for Lifelong Learning.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#003F8A;
+  --blue-dark:#002560;
+  --blue-mid:#1565C0;
+  --blue-light:#E3F0FF;
+  --blue-pale:#F0F6FF;
+  --green:#2E7D32;
+  --green-bright:#43A047;
+  --green-light:#E8F5E9;
+  --green-accent:#66BB6A;
+  --white:#FFFFFF;
+  --off-white:#F7F9FC;
+  --text:#1A2340;
+  --text-mid:#4A5568;
+  --text-soft:#8898AA;
+  --border:#E2E8F0;
+  --shadow:rgba(0,63,138,0.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden}
+
+/* ===== TOPBAR ===== */
+.topbar{background:var(--blue-dark);padding:7px 3rem;display:flex;justify-content:space-between;align-items:center}
+.topbar-left{display:flex;gap:2rem;align-items:center}
+.topbar-item{font-size:12px;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:6px}
+.topbar-right{display:flex;gap:12px;align-items:center}
+.tb-link{font-size:11px;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.05em;padding:4px 10px;border-radius:4px;transition:all 0.2s;cursor:pointer}
+.tb-link:hover{background:rgba(255,255,255,0.1);color:white}
+.tb-link.portal{background:var(--green);color:white;font-weight:600}
+.tb-link.portal:hover{background:var(--green-bright)}
+
+/* ===== MAIN NAV ===== */
+.main-nav{background:var(--blue);position:sticky;top:0;z-index:200;box-shadow:0 4px 20px var(--shadow)}
+.nav-inner{display:flex;align-items:center;padding:0 3rem;max-width:1400px;margin:0 auto;justify-content:space-between}
+.logo-wrap{display:flex;align-items:center;gap:14px;padding:10px 0;cursor:pointer}
+.logo-wrap img{height:60px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.35))}
+.logo-text-block{line-height:1.2}
+.logo-title{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:0.01em}
+.logo-tagline{font-size:10px;color:rgba(255,255,255,0.55);font-style:italic;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-item{position:relative}
+.nav-link{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);padding:28px 16px;display:block;cursor:pointer;letter-spacing:0.03em;border-bottom:3px solid transparent;border-left:none;border-right:none;border-top:none;background:none;transition:all 0.2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:white;border-bottom-color:var(--green-accent)}
+.nav-link.active{background:rgba(255,255,255,0.06)}
+.dropdown{position:absolute;top:100%;left:0;background:white;min-width:220px;border-radius:0 0 10px 10px;box-shadow:0 8px 30px rgba(0,63,138,0.18);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s;z-index:300;border-top:3px solid var(--green)}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dd-link{display:block;padding:11px 18px;font-size:13px;color:var(--text-mid);text-decoration:none;transition:all 0.15s;border-bottom:1px solid var(--border);cursor:pointer}
+.dd-link:last-child{border-bottom:none}
+.dd-link:hover{background:var(--blue-pale);color:var(--blue);padding-left:22px}
+.btn-apply-nav{background:var(--green);color:white;border:none;padding:10px 22px;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.03em;transition:all 0.2s}
+.btn-apply-nav:hover{background:var(--green-bright);transform:translateY(-1px);box-shadow:0 4px 12px rgba(46,125,50,0.4)}
+
+/* ===== PAGE SYSTEM ===== */
+.page{display:none}
+.page.active{display:block}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 55%,#1a5e20 100%);position:relative;overflow:hidden;min-height:580px;display:flex;align-items:center}
+.hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:40px 40px}
+.hero-shape{position:absolute;right:0;top:0;bottom:0;width:45%;background:rgba(255,255,255,0.04);clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%)}
+.hero-inner{position:relative;z-index:2;padding:80px 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1400px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(102,187,106,0.18);border:1px solid rgba(102,187,106,0.35);border-radius:100px;padding:6px 18px 6px 10px;font-size:11px;color:var(--green-accent);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:22px}
+.badge-pulse{width:8px;height:8px;border-radius:50%;background:var(--green-accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.85)}}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:50px;font-weight:900;color:white;line-height:1.05;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--green-accent)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:36px;max-width:500px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-hero-primary{background:var(--green);color:white;border:none;padding:16px 34px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-hero-primary:hover{background:var(--green-bright);transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,125,50,0.45)}
+.btn-hero-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.35);padding:16px 34px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-hero-outline:hover{background:rgba(255,255,255,0.1);border-color:white}
+.hero-stats{display:flex;gap:0;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.12)}
+.hstat{flex:1;padding-right:2rem}
+.hstat-num{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;color:white}
+.hstat-num sup{font-size:20px;color:var(--green-accent)}
+.hstat-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:5px;text-transform:uppercase;letter-spacing:0.08em}
+
+/* HERO APPLY CARD */
+.hero-card{background:white;border-radius:18px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.hero-card h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.hero-card p{font-size:13px;color:var(--text-soft);margin-bottom:1.5rem}
+.hc-field{margin-bottom:1rem}
+.hc-field label{display:block;font-size:11px;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:5px}
+.hc-field input,.hc-field select{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:'Open Sans',sans-serif;color:var(--text);outline:none;background:var(--off-white);transition:border 0.2s}
+.hc-field input:focus,.hc-field select:focus{border-color:var(--blue);background:white}
+.hc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit-full{width:100%;background:var(--green);color:white;border:none;padding:14px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:4px;transition:all 0.2s}
+.btn-submit-full:hover{background:var(--green-bright)}
+.hc-note{font-size:11px;color:var(--text-soft);text-align:center;margin-top:10px}
+
+/* ===== TICKER ===== */
+.news-ticker{background:var(--green);padding:10px 0;overflow:hidden}
+.ticker-inner{display:flex;align-items:center}
+.ticker-label{background:var(--blue-dark);color:white;font-size:11px;font-weight:800;padding:4px 16px;text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap;flex-shrink:0}
+.ticker-track{overflow:hidden;flex:1;padding:0 16px}
+.ticker-content{display:flex;gap:40px;animation:ticker 30s linear infinite;white-space:nowrap;width:max-content}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-size:13px;color:white;font-weight:600}
+.ticker-sep{color:rgba(255,255,255,0.4)}
+
+/* ===== QUICK ACCESS ===== */
+.quick-access{background:white;display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--border)}
+.qa-item{padding:1.5rem 1rem;text-align:center;border-right:1px solid var(--border);cursor:pointer;transition:all 0.2s;text-decoration:none;display:block}
+.qa-item:last-child{border-right:none}
+.qa-item:hover{background:var(--blue-pale)}
+.qa-icon{width:48px;height:48px;border-radius:12px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.qa-icon.blue{background:var(--blue-light)}
+.qa-icon.green{background:var(--green-light)}
+.qa-title{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--blue);margin-bottom:2px}
+.qa-desc{font-size:11px;color:var(--text-soft)}
+
+/* ===== SECTION COMMONS ===== */
+.section{padding:5rem 3rem;max-width:1400px;margin:0 auto}
+.sec-eyebrow{font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sec-eyebrow::before{content:'';width:24px;height:2px;background:var(--green);display:inline-block}
+.sec-h{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;color:var(--blue);line-height:1.1;margin-bottom:14px}
+.sec-sub{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:560px}
+
+/* ===== PROGRAMS ===== */
+.prog-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:2rem;margin-top:2rem}
+.ptab{padding:12px 24px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text-soft);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;background:none;border-left:none;border-right:none;border-top:none}
+.ptab.active,.ptab:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prog-card{background:white;border-radius:16px;padding:2rem;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.3s;cursor:pointer}
+.prog-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
+.prog-card-accent{position:absolute;top:0;left:0;right:0;height:5px}
+.prog-card-accent.eng{background:linear-gradient(90deg,var(--blue),var(--blue-mid))}
+.prog-card-accent.bus{background:linear-gradient(90deg,var(--green),var(--green-bright))}
+.prog-card-accent.ict{background:linear-gradient(90deg,#1565C0,#42A5F5)}
+.prog-card-accent.edu{background:linear-gradient(90deg,#558B2F,#9CCC65)}
+.prog-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+.prog-icon.eng{background:var(--blue-light)}
+.prog-icon.bus{background:var(--green-light)}
+.prog-icon.ict{background:rgba(21,101,192,0.1)}
+.prog-icon.edu{background:rgba(85,139,47,0.1)}
+.prog-title{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:800;color:var(--blue);margin-bottom:8px}
+.prog-desc{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
+.prog-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pmeta{font-size:11px;color:var(--text-soft);background:var(--off-white);padding:3px 11px;border-radius:100px;border:1px solid var(--border)}
+.prog-cta{font-size:13px;color:var(--blue);font-weight:700}
+
+/* ===== NEWS ===== */
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;margin-top:2.5rem}
+.news-featured{background:white;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.news-img-hero{height:220px;background:linear-gradient(135deg,var(--blue-dark),var(--green));display:flex;align-items:flex-end;padding:1.5rem;position:relative}
+.news-cat-badge{background:var(--green);color:white;font-size:10px;font-weight:800;padding:4px 12px;border-radius:4px;text-transform:uppercase;letter-spacing:0.07em;position:relative;z-index:2}
+.news-body{padding:1.5rem}
+.news-date{font-size:11px;color:var(--text-soft);margin-bottom:8px}
+.news-hl{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--blue);line-height:1.3;margin-bottom:10px}
+.news-ex{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+.news-more{font-size:13px;color:var(--blue);font-weight:700;cursor:pointer}
+.news-side{display:flex;flex-direction:column;gap:1rem}
+.news-sm{background:white;border-radius:12px;padding:1.25rem;border:1px solid var(--border);cursor:pointer;transition:all 0.2s}
+.news-sm:hover{border-color:var(--blue);background:var(--blue-pale)}
+.news-sm-cat{font-size:10px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px}
+.news-sm-hl{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--blue);line-height:1.3;margin-bottom:5px}
+.news-sm-date{font-size:11px;color:var(--text-soft)}
+
+/* ===== CTA BAND ===== */
+.cta-band{background:linear-gradient(135deg,var(--blue-dark) 0%,var(--blue) 60%,#1B5E20 100%);padding:5rem 3rem;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.cta-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.cta-left h2{font-family:'Montserrat',sans-serif;font-size:42px;font-weight:900;color:white;line-height:1.05;margin-bottom:16px}
+.cta-left h2 em{font-style:normal;color:var(--green-accent)}
+.cta-left p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:24px}
+.cta-btns{display:flex;gap:14px}
+.btn-white{background:white;color:var(--blue);border:none;padding:14px 28px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-white:hover{background:var(--off-white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:white;border:2px solid rgba(255,255,255,0.4);padding:14px 28px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-outline-white:hover{border-color:white;background:rgba(255,255,255,0.1)}
+.campus-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.campus-mini{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:1.25rem;cursor:pointer;transition:all 0.2s}
+.campus-mini:hover{background:rgba(255,255,255,0.14);border-color:var(--green-accent)}
+.campus-mini h4{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:white;margin-bottom:4px}
+.campus-mini p{font-size:12px;color:rgba(255,255,255,0.55)}
+.campus-mini span{font-size:11px;color:var(--green-accent);font-weight:700}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--blue-dark);padding:5rem 3rem 2rem}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+.footer-brand img{height:65px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1) opacity(0.9)}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:20px}
+.footer-socials{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);font-size:16px;cursor:pointer;border:none;transition:all 0.2s}
+.social-btn:hover{background:var(--green);color:white}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;color:white;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:0.1em}
+.footer-link{display:block;font-size:13px;color:rgba(255,255,255,0.42);margin-bottom:10px;text-decoration:none;cursor:pointer;transition:all 0.2s}
+.footer-link:hover{color:white;padding-left:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.28)}
+.footer-bottom-links{display:flex;gap:1.5rem}
+.footer-bottom-links a{font-size:12px;color:rgba(255,255,255,0.28);text-decoration:none;cursor:pointer}
+.footer-bottom-links a:hover{color:white}
+
+/* ===== SUB-PAGE SHARED ===== */
+.page-hero-sub{background:linear-gradient(135deg,var(--blue-dark),var(--blue));padding:5rem 3rem 4rem;position:relative;overflow:hidden}
+.page-hero-sub::after{content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;border-radius:50%;background:rgba(102,187,106,0.1)}
+.breadcrumb{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:1rem}
+.breadcrumb span{color:rgba(255,255,255,0.7);cursor:pointer}
+.breadcrumb span:hover{color:white}
+.page-hero-sub h1{font-family:'Montserrat',sans-serif;font-size:44px;font-weight:900;color:white;margin-bottom:14px;position:relative;z-index:2}
+.page-hero-sub p{font-size:16px;color:rgba(255,255,255,0.65);max-width:600px;line-height:1.8;position:relative;z-index:2}
+
+/* ===== ACADEMICS ===== */
+.chip{padding:8px 20px;border-radius:100px;font-size:13px;border:1.5px solid var(--border);background:white;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;color:var(--text-mid);transition:all 0.2s}
+.chip.active,.chip:hover{background:var(--blue);color:white;border-color:var(--blue)}
+.search-box{margin-left:auto;border:1.5px solid var(--border);border-radius:9px;padding:9px 16px;font-size:13px;font-family:'Open Sans',sans-serif;color:var(--text);background:white;outline:none;width:260px}
+.search-box:focus{border-color:var(--blue)}
+.prog-full-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:1.5rem}
+.prog-row{background:white;border-radius:14px;padding:1.75rem;border:1px solid var(--border);display:flex;gap:1.25rem;align-items:flex-start;transition:all 0.25s;cursor:pointer}
+.prog-row:hover{border-color:var(--blue);box-shadow:0 8px 24px var(--shadow);transform:translateY(-2px)}
+.prog-num-badge{min-width:56px;height:56px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;flex-shrink:0}
+.prog-num-badge.eng{background:var(--blue-light);color:var(--blue)}
+.prog-num-badge.bus{background:var(--green-light);color:var(--green)}
+.prog-num-badge.ict{background:rgba(21,101,192,0.1);color:var(--blue-mid)}
+.prog-num-badge.edu{background:rgba(85,139,47,0.12);color:#558B2F}
+.prog-row-info h3{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--blue);margin-bottom:6px}
+.prog-row-info p{font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:10px}
+.prog-chips{display:flex;gap:8px;flex-wrap:wrap}
+.pchip{font-size:11px;color:var(--text-soft);background:var(--off-white);padding:3px 11px;border-radius:100px;border:1px solid var(--border)}
+
+/* ===== CAMPUSES ===== */
+.campus-layout{display:grid;grid-template-columns:1fr 380px;min-height:600px}
+.campus-left{padding:2rem 3rem;background:var(--off-white)}
+.campus-grid-sel{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.campus-sel-card{padding:1.5rem;border:2px solid var(--border);border-radius:14px;cursor:pointer;background:white;transition:all 0.2s}
+.campus-sel-card:hover,.campus-sel-card.sel{border-color:var(--green);background:var(--green-light)}
+.campus-sel-card.sel .csn{color:var(--green)}
+.csn{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.csl{font-size:12px;color:var(--text-soft);margin-bottom:10px}
+.cst{display:flex;gap:6px;flex-wrap:wrap}
+.ctag{font-size:11px;background:var(--off-white);color:var(--text-mid);padding:3px 10px;border-radius:100px;border:1px solid var(--border)}
+.campus-right{background:white;border-left:1px solid var(--border);padding:2rem;overflow-y:auto}
+.campus-detail-header{background:linear-gradient(135deg,var(--blue),var(--blue-mid));border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;color:white}
+.campus-detail-header h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px}
+.campus-detail-header p{font-size:13px;opacity:0.7}
+.campus-map-placeholder{height:180px;background:linear-gradient(135deg,#c8e6b0,#a5d6a7);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.map-pin-marker{width:24px;height:24px;background:var(--blue);border-radius:50% 50% 50% 0;transform:rotate(-45deg);position:relative}
+.map-pin-marker::after{content:'';width:10px;height:10px;background:white;border-radius:50%;position:absolute;top:7px;left:7px}
+.map-label{position:absolute;bottom:16px;font-size:13px;font-weight:700;color:var(--blue);background:white;padding:4px 12px;border-radius:6px}
+.c-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+.c-dbox{background:var(--off-white);border-radius:10px;padding:1rem}
+.c-dbox-lbl{font-size:11px;color:var(--text-soft);margin-bottom:4px}
+.c-dbox-val{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--blue)}
+.fac-lbl{font-size:12px;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px}
+.fac-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem}
+.btn-campus-apply{width:100%;background:var(--green);color:white;border:none;padding:13px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-campus-apply:hover{background:var(--green-bright)}
+
+/* ===== ADMISSIONS ===== */
+.adm-layout{display:grid;grid-template-columns:1fr 380px;gap:0;align-items:start;max-width:1400px;margin:0 auto}
+.adm-main{padding:3rem}
+.steps-visual{display:flex;gap:0;margin:2rem 0 3rem;position:relative}
+.steps-visual::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:2px;background:var(--border);z-index:0}
+.step-v{flex:1;text-align:center;position:relative;z-index:1}
+.step-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;margin:0 auto 12px;border:3px solid var(--border);background:white;color:var(--text-soft)}
+.step-v.done .step-circle{background:var(--green);color:white;border-color:var(--green)}
+.step-v.active .step-circle{background:var(--blue);color:white;border-color:var(--blue)}
+.step-v h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.step-v p{font-size:12px;color:var(--text-soft);line-height:1.5}
+.req-cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.req-c{background:white;border:1px solid var(--border);border-radius:16px;padding:2rem}
+.req-c h3{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:800;color:var(--blue);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--border)}
+.req-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.req-check{width:22px;height:22px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px}
+.req-item p{font-size:13px;color:var(--text-mid);line-height:1.6}
+.info-box{border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;font-size:13px;line-height:1.65}
+.info-box.green{background:var(--green-light);border-left:4px solid var(--green);color:var(--green)}
+.info-box.blue{background:var(--blue-light);border-left:4px solid var(--blue);color:var(--blue)}
+.adm-sidebar{padding:3rem 2rem 3rem 0}
+.adm-apply-form{background:white;border:1px solid var(--border);border-radius:16px;padding:2rem;position:sticky;top:100px}
+.adm-apply-form h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.adm-apply-form > p{font-size:13px;color:var(--text-soft);margin-bottom:1.5rem}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:11px;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:5px}
+.form-field input,.form-field select,.form-field textarea{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;font-size:14px;font-family:'Open Sans',sans-serif;color:var(--text);outline:none;background:var(--off-white);transition:border 0.2s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--blue);background:white}
+.form-field textarea{min-height:100px;resize:vertical}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-full{width:100%;background:var(--green);color:white;border:none;padding:14px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:4px}
+.btn-full:hover{background:var(--green-bright)}
+
+/* ===== DATES TABLE ===== */
+.dates-section{background:white;border-radius:16px;padding:2rem;margin-top:1.5rem;border:1px solid var(--border)}
+.dates-section h3{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:800;color:var(--blue);margin-bottom:1.5rem}
+.dates-table{width:100%;border-collapse:collapse}
+.dates-table th{background:var(--blue);color:white;padding:12px 16px;text-align:left;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em}
+.dates-table td{padding:12px 16px;font-size:13px;color:var(--text-mid);border-bottom:1px solid var(--border)}
+.dates-table tr:last-child td{border-bottom:none}
+.dates-table tr:hover td{background:var(--blue-pale)}
+.status-open{background:var(--green-light);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
+.status-soon{background:rgba(21,101,192,0.1);color:var(--blue-mid);font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
+
+/* ===== STUDENT LIFE ===== */
+.life-hero-cards{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem;margin-top:2rem}
+.life-main-card{background:linear-gradient(135deg,var(--blue),var(--blue-mid));border-radius:16px;padding:2.5rem;color:white;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end}
+.life-main-card h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;margin-bottom:8px}
+.life-main-card p{font-size:14px;opacity:0.75;line-height:1.7}
+.life-sm-card{border-radius:16px;padding:1.75rem;color:white;display:flex;flex-direction:column;justify-content:flex-end;min-height:160px}
+.life-sm-card h4{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;margin-bottom:4px}
+.life-sm-card p{font-size:13px;opacity:0.75}
+.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.support-card{background:white;border-radius:16px;padding:2rem;border:1px solid var(--border);transition:all 0.2s}
+.support-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px var(--shadow)}
+.sup-icon{width:52px;height:52px;border-radius:13px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px}
+.support-card h4{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--blue);margin-bottom:8px}
+.support-card p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:14px}
+.sup-link{font-size:13px;color:var(--green);font-weight:700;cursor:pointer}
+
+/* ===== CONTACT ===== */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1400px;margin:0 auto}
+.contact-info-panel{background:var(--blue-dark);padding:3rem;color:white}
+.contact-info-panel h2{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:900;margin-bottom:1rem}
+.contact-info-panel > p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:2rem}
+.contact-detail{display:flex;gap:14px;margin-bottom:1.25rem;align-items:flex-start}
+.c-icon{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.c-text h5{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:white;margin-bottom:2px}
+.c-text p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5}
+.campus-phones{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)}
+.campus-phones h4{font-size:11px;font-weight:800;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem}
+.campus-phones-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cp-item{font-size:12px;color:rgba(255,255,255,0.5)}
+.contact-form-panel{background:white;padding:3rem}
+.contact-form-panel h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.contact-form-panel > p{font-size:13px;color:var(--text-soft);margin-bottom:2rem}
+.c-submit{background:var(--green);color:white;border:none;padding:14px 28px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;width:100%;transition:all 0.2s}
+.c-submit:hover{background:var(--green-bright)}
+.faq-wrap{background:var(--off-white);padding:4rem 3rem}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.faq-item{background:white;border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.faq-q{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.faq-a{font-size:13px;color:var(--text-mid);line-height:1.7}
+
+/* ===== MODAL ===== */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,37,96,0.7);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:white;border-radius:20px;padding:2.5rem;width:90%;max-width:500px;position:relative;animation:modalIn 0.3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:var(--off-white);border:none;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-soft)}
+.modal h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:4px}
+.modal > p{font-size:13px;color:var(--text-soft);margin-bottom:1.5rem}
+.modal-success{display:none;text-align:center;padding:2rem}
+.modal-success h3{font-family:'Montserrat',sans-serif;font-size:22px;color:var(--green);font-weight:800;margin-bottom:8px;margin-top:16px}
+.modal-success p{font-size:14px;color:var(--text-mid)}
+.success-icon{font-size:56px}
+
+/* ===== SCROLL TOP ===== */
+.scroll-top{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;background:var(--blue);color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 16px rgba(0,63,138,0.3);opacity:0;transition:all 0.3s;z-index:500}
+.scroll-top.visible{opacity:1}
+.scroll-top:hover{background:var(--green)}
+
+/* ===== INTRANET ===== */
+.intranet-body{background:#F0F4F8;min-height:100vh}
+.intranet-topbar{background:var(--blue-dark);padding:8px 2rem;display:flex;justify-content:space-between;align-items:center}
+.intranet-topbar-logo{display:flex;align-items:center;gap:10px}
+.intranet-topbar-logo img{height:38px;filter:brightness(0) invert(1) opacity(0.9)}
+.intranet-topbar-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:white}
+.intranet-topbar-sub{font-size:10px;color:rgba(255,255,255,0.5)}
+.intranet-topbar-right{display:flex;align-items:center;gap:16px}
+.intranet-search{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:7px;padding:7px 14px;font-size:13px;color:white;outline:none;width:240px}
+.intranet-search::placeholder{color:rgba(255,255,255,0.4)}
+.intranet-notif{position:relative;cursor:pointer}
+.notif-dot{position:absolute;top:-3px;right:-3px;width:8px;height:8px;background:#F44336;border-radius:50%;border:1.5px solid var(--blue-dark)}
+.user-chip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border-radius:8px;padding:6px 12px;cursor:pointer}
+.user-avatar{width:30px;height:30px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:white}
+.user-name-txt{font-size:12px;font-weight:700;color:white}
+.user-role-txt{font-size:10px;color:rgba(255,255,255,0.5)}
+.intranet-nav{background:var(--blue);display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(255,255,255,0.08);gap:0;flex-wrap:wrap}
+.intranet-nav-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);padding:14px 14px;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;background:none;border-left:none;border-right:none;border-top:none}
+.intranet-nav-link:hover,.intranet-nav-link.in-active{color:white;border-bottom-color:var(--green-accent)}
+.intranet-nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.intranet-btn{padding:7px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all 0.2s}
+.intranet-btn.primary{background:var(--green);color:white}
+.intranet-btn.outline{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2)}
+.intranet-layout{display:grid;grid-template-columns:230px 1fr 270px;min-height:calc(100vh - 108px)}
+.intranet-sidebar{background:white;border-right:1px solid #E2E8F0;padding:1.5rem 0}
+.sidebar-section-lbl{font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;padding:0 1.25rem;margin-bottom:6px;margin-top:1.25rem}
+.sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 1.25rem;font-size:13px;font-weight:600;color:#4A5568;cursor:pointer;transition:all 0.15s;border-left:3px solid transparent}
+.sidebar-link:hover,.sidebar-link.s-active{background:#EFF6FF;color:var(--blue);border-left-color:var(--blue)}
+.sidebar-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:#F1F5F9}
+.sidebar-badge{margin-left:auto;background:var(--green);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
+.intranet-main{padding:1.75rem 2rem;overflow-y:auto}
+.intranet-welcome{background:linear-gradient(135deg,var(--blue),var(--blue-mid));border-radius:16px;padding:1.75rem 2rem;color:white;display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.iw-text h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;margin-bottom:4px}
+.iw-text p{font-size:13px;opacity:0.7}
+.iw-stats{display:flex;gap:1.5rem}
+.iw-stat{text-align:right}
+.iw-stat-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:white}
+.iw-stat-lbl{font-size:10px;opacity:0.55;text-transform:uppercase;letter-spacing:0.07em}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.dash-card{background:white;border-radius:14px;padding:1.25rem;border:1px solid #E2E8F0}
+.dash-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.dash-card-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)}
+.dash-card-action{font-size:12px;color:var(--green);font-weight:700;cursor:pointer}
+.timetable{width:100%;border-collapse:collapse;font-size:12px}
+.timetable th{background:#F8FAFC;padding:8px;text-align:left;font-weight:700;color:#64748B;border-bottom:1px solid #E2E8F0;font-size:11px;text-transform:uppercase}
+.timetable td{padding:8px;border-bottom:1px solid #F1F5F9;color:#4A5568;vertical-align:top}
+.tt-module{background:var(--blue-light);border-left:3px solid var(--blue);border-radius:4px;padding:4px 8px;font-size:11px;font-weight:600;color:var(--blue);margin-bottom:3px}
+.tt-module.green{background:var(--green-light);border-color:var(--green);color:var(--green)}
+.marks-table{width:100%;border-collapse:collapse;font-size:13px}
+.marks-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:700;color:#64748B;background:#F8FAFC;border-bottom:1px solid #E2E8F0}
+.marks-table td{padding:10px 12px;border-bottom:1px solid #F1F5F9;color:#4A5568}
+.grade-badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:800}
+.grade-a{background:#E8F5E9;color:#2E7D32}
+.grade-b{background:#E3F2FD;color:#1565C0}
+.grade-c{background:#FFF8E1;color:#F57F17}
+.progress-bar{height:6px;background:#E2E8F0;border-radius:3px;overflow:hidden;margin-top:4px}
+.progress-fill{height:100%;border-radius:3px;background:var(--green)}
+.ann-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #F1F5F9;align-items:flex-start}
+.ann-item:last-child{border-bottom:none}
+.ann-icon-i{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.ann-icon-i.blue{background:var(--blue-light)}
+.ann-icon-i.green{background:var(--green-light)}
+.ann-icon-i.orange{background:#FFF3E0}
+.ann-text-item h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1E293B;margin-bottom:2px}
+.ann-text-item p{font-size:12px;color:#64748B;line-height:1.5}
+.ann-time{font-size:10px;color:#94A3B8;margin-top:3px}
+.intranet-right{background:white;border-left:1px solid #E2E8F0;padding:1.5rem;overflow-y:auto}
+.right-section{margin-bottom:2rem}
+.rs-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--blue);margin-bottom:1rem;padding-bottom:8px;border-bottom:1px solid #F1F5F9}
+.iq-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.iq-link{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:all 0.15s}
+.iq-link:hover{background:var(--blue-light);border-color:var(--blue)}
+.iq-link-icon{font-size:22px;margin-bottom:5px}
+.iq-link-text{font-size:11px;font-weight:700;color:#4A5568}
+.mini-cal{border-collapse:collapse;width:100%}
+.mini-cal th{font-size:10px;font-weight:700;color:#94A3B8;text-align:center;padding:4px}
+.mini-cal td{text-align:center;padding:5px 4px;font-size:12px;color:#4A5568;cursor:pointer;border-radius:5px}
+.mini-cal td:hover{background:#F1F5F9}
+.mini-cal .today-cell{background:var(--blue);color:white;border-radius:5px;font-weight:700}
+.mini-cal .has-event{color:var(--green);font-weight:700}
+.sp-note{background:linear-gradient(135deg,#0078D4,#0056A0);border-radius:12px;padding:1rem;color:white;font-size:12px;line-height:1.6;margin-top:1.5rem}
+.sp-note strong{display:block;font-family:'Montserrat',sans-serif;font-size:13px;margin-bottom:4px}
+.return-bar{background:var(--blue-dark);padding:8px 2rem;display:flex;align-items:center;gap:12px}
+.return-btn{background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);padding:6px 16px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif}
+.return-btn:hover{background:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-form-wrap">
+      <h2>Apply to Maluti TVET</h2>
+      <p>Complete this form to begin your application. We'll contact you within 2 business days.</p>
+      <div class="form-2col">
+        <div class="form-field"><label>First Name</label><input type="text" placeholder="First name" id="m-fname"></div>
+        <div class="form-field"><label>Surname</label><input type="text" placeholder="Surname" id="m-sname"></div>
+      </div>
+      <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com" id="m-email"></div>
+      <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="076 000 0000" id="m-phone"></div>
+      <div class="form-field"><label>Programme</label>
+        <select id="m-prog">
+          <option value="">Select a programme...</option>
+          <option>Engineering Studies (N1–N6)</option>
+          <option>Business Studies (N4–N6)</option>
+          <option>Information Technology (N4–N6)</option>
+          <option>Education / NATED</option>
+          <option>NCV Level 2–4</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Preferred Campus</label>
+        <select id="m-campus">
+          <option value="">Select campus...</option>
+          <option>Main Campus – Phuthaditjhaba</option>
+          <option>Bethlehem Campus</option>
+          <option>Harrismith Campus</option>
+          <option>Bonamelo Campus</option>
+          <option>Itemoheleng Campus</option>
+          <option>Kwetlisong Campus</option>
+          <option>Lere la Tshepe Campus</option>
+          <option>Sefikeng Campus</option>
+        </select>
+      </div>
+      <button class="btn-full" onclick="submitModal()">Submit Application →</button>
+      <p style="text-align:center;font-size:11px;color:var(--text-soft);margin-top:12px">🔒 Your details are secure and never shared.</p>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div class="success-icon">🎓</div>
+      <h3>Application Received!</h3>
+      <p>Thank you for applying to Maluti TVET College.<br>Our admissions team will contact you within 2 business days.<br><br>Check your email for a confirmation.</p>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-item">📞 058 303 5011</span>
+    <span class="topbar-item">✉️ info@malutitvet.co.za</span>
+    <span class="topbar-item">🕒 Mon–Fri: 07:30–16:00</span>
+  </div>
+  <div class="topbar-right">
+    <span class="tb-link" onclick="window.open('https://nsfas.org.za','_blank')">NSFAS Portal</span>
+    <span class="tb-link">Staff Portal</span>
+    <span class="tb-link" onclick="showPage('intranet')" style="color:var(--green-accent)">Student Intranet</span>
+    <span class="tb-link portal" onclick="openModal()">Apply Now</span>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <div class="nav-inner">
+    <div class="logo-wrap" onclick="showPage('home')">
+      <img id="main-logo" src="" alt="Maluti TVET College Logo">
+      <div class="logo-text-block">
+        <div class="logo-title">MALUTI TVET COLLEGE</div>
+        <div class="logo-tagline">Great Place. Great Choice for Lifelong Learning.</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <div class="nav-item">
+        <button class="nav-link active" id="nav-home" onclick="showPage('home')">Home</button>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" id="nav-academics" onclick="showPage('academics')">Academics ▾</button>
+        <div class="dropdown">
+          <span class="dd-link" onclick="showPage('academics')">All Programmes</span>
+          <span class="dd-link" onclick="showPage('academics')">Engineering Studies</span>
+          <span class="dd-link" onclick="showPage('academics')">Business Studies</span>
+          <span class="dd-link" onclick="showPage('academics')">Information Technology</span>
+          <span class="dd-link" onclick="showPage('academics')">NCV Programmes</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" id="nav-campuses" onclick="showPage('campuses')">Campuses ▾</button>
+        <div class="dropdown">
+          <span class="dd-link" onclick="showPage('campuses')">All 8 Campuses</span>
+          <span class="dd-link" onclick="showPage('campuses')">Main Campus – QwaQwa</span>
+          <span class="dd-link" onclick="showPage('campuses')">Bethlehem Campus</span>
+          <span class="dd-link" onclick="showPage('campuses')">Harrismith Campus</span>
+          <span class="dd-link" onclick="showPage('campuses')">Bonamelo Campus</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" id="nav-admissions" onclick="showPage('admissions')">Admissions ▾</button>
+        <div class="dropdown">
+          <span class="dd-link" onclick="showPage('admissions')">How to Apply</span>
+          <span class="dd-link" onclick="showPage('admissions')">Entry Requirements</span>
+          <span class="dd-link" onclick="window.open('https://nsfas.org.za','_blank')">NSFAS Funding</span>
+          <span class="dd-link" onclick="showPage('admissions')">Academic Calendar</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" id="nav-student-life" onclick="showPage('student-life')">Student Life ▾</button>
+        <div class="dropdown">
+          <span class="dd-link" onclick="showPage('student-life')">Campus Life</span>
+          <span class="dd-link" onclick="showPage('student-life')">Sports & Recreation</span>
+          <span class="dd-link" onclick="showPage('student-life')">Health & Wellness</span>
+          <span class="dd-link" onclick="showPage('student-life')">Accommodation</span>
+          <span class="dd-link" onclick="showPage('student-life')">Career Centre</span>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-link" id="nav-contact" onclick="showPage('contact')">Contact</button>
+      </div>
+    </div>
+    <button class="btn-apply-nav" onclick="openModal()">Apply Now →</button>
+  </div>
+</nav>
+
+<!-- ==================== HOME ==================== -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span class="badge-pulse"></span>Applications Open for 2026</div>
+        <h1>Shape Your Future<br>with <em>Maluti TVET</em><br>College</h1>
+        <p class="hero-sub">Quality technical and vocational education across 8 campuses in the Free State. Empowering South Africa's skilled workforce — one student at a time.</p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" onclick="openModal()">Apply Now – 2026</button>
+          <button class="btn-hero-outline" onclick="showPage('academics')">Explore Programmes</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><div class="hstat-num">8<sup>+</sup></div><div class="hstat-lbl">Campuses</div></div>
+          <div class="hstat"><div class="hstat-num">45<sup>+</sup></div><div class="hstat-lbl">Programmes</div></div>
+          <div class="hstat"><div class="hstat-num">25K<sup>+</sup></div><div class="hstat-lbl">Students</div></div>
+          <div class="hstat"><div class="hstat-num">95<sup>%</sup></div><div class="hstat-lbl">NSFAS Eligible</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Quick Application</h3>
+        <p>Start your journey in under 2 minutes</p>
+        <div class="hc-row">
+          <div class="hc-field"><label>First Name</label><input type="text" placeholder="First name" id="qf-fname"></div>
+          <div class="hc-field"><label>Surname</label><input type="text" placeholder="Surname" id="qf-sname"></div>
+        </div>
+        <div class="hc-field"><label>Email Address</label><input type="email" placeholder="your@email.com" id="qf-email"></div>
+        <div class="hc-field"><label>Programme Interest</label>
+          <select id="qf-prog">
+            <option value="">Select programme...</option>
+            <option>Engineering Studies</option>
+            <option>Business Studies</option>
+            <option>Information Technology</option>
+            <option>Education (NATED)</option>
+            <option>NCV Programmes</option>
+          </select>
+        </div>
+        <div class="hc-field"><label>Preferred Campus</label>
+          <select id="qf-campus">
+            <option value="">Select campus...</option>
+            <option>Main Campus – Phuthaditjhaba</option>
+            <option>Bethlehem Campus</option>
+            <option>Harrismith Campus</option>
+            <option>Bonamelo Campus</option>
+          </select>
+        </div>
+        <button class="btn-submit-full" onclick="submitQuickForm()">Begin Application →</button>
+        <div class="hc-note">🔒 Secure · Your details are kept private</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="news-ticker">
+    <div class="ticker-inner">
+      <div class="ticker-label">📢 Latest</div>
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span class="ticker-item">📅 2026 Applications Now Open — Apply Online or at Any Campus</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">💰 NSFAS 2026 Applications Close 31 March 2026 — Apply at nsfas.org.za</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">🎓 Graduation Ceremony: October 2026 — Main Campus, Phuthaditjhaba</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">📞 Call Centre: 058 303 5011 | Mon–Fri 07:30–16:00</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">📅 2026 Applications Now Open — Apply Online or at Any Campus</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">💰 NSFAS 2026 Applications Close 31 March 2026 — Apply at nsfas.org.za</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">🎓 Graduation Ceremony: October 2026 — Main Campus, Phuthaditjhaba</span>
+          <span class="ticker-sep">◆</span>
+          <span class="ticker-item">📞 Call Centre: 058 303 5011 | Mon–Fri 07:30–16:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK ACCESS -->
+  <div class="quick-access">
+    <span class="qa-item" onclick="openModal()"><div class="qa-icon blue">📝</div><div class="qa-title">Apply Online</div><div class="qa-desc">Start 2026 application</div></span>
+    <a class="qa-item" href="https://nsfas.org.za" target="_blank"><div class="qa-icon green">💰</div><div class="qa-title">NSFAS Funding</div><div class="qa-desc">Apply for financial aid</div></a>
+    <span class="qa-item" onclick="showPage('academics')"><div class="qa-icon blue">🎓</div><div class="qa-title">Programmes</div><div class="qa-desc">Explore all courses</div></span>
+    <span class="qa-item" onclick="showPage('campuses')"><div class="qa-icon green">📍</div><div class="qa-title">Find a Campus</div><div class="qa-desc">8 campuses available</div></span>
+    <span class="qa-item" onclick="showPage('intranet')"><div class="qa-icon blue">🖥️</div><div class="qa-title">Student Portal</div><div class="qa-desc">Access your account</div></span>
+    <span class="qa-item" onclick="showPage('contact')"><div class="qa-icon green">📞</div><div class="qa-title">Contact Us</div><div class="qa-desc">Get in touch today</div></span>
+  </div>
+
+  <!-- PROGRAMMES -->
+  <div class="section" style="background:var(--off-white);max-width:100%;padding:5rem 3rem">
+    <div style="max-width:1400px;margin:0 auto">
+      <div class="sec-eyebrow">What We Offer</div>
+      <h2 class="sec-h">Programmes Designed for<br>South Africa's Economy</h2>
+      <p class="sec-sub">Nationally accredited qualifications that open doors in industry, government, and entrepreneurship.</p>
+      <div class="prog-tabs">
+        <button class="ptab active" onclick="filterProgs(this,'all')">All Programmes</button>
+        <button class="ptab" onclick="filterProgs(this,'eng')">Engineering</button>
+        <button class="ptab" onclick="filterProgs(this,'bus')">Business</button>
+        <button class="ptab" onclick="filterProgs(this,'ict')">ICT</button>
+        <button class="ptab" onclick="filterProgs(this,'edu')">Education</button>
+      </div>
+      <div class="prog-grid" id="home-prog-grid">
+        <div class="prog-card" data-cat="eng" onclick="showPage('academics')"><div class="prog-card-accent eng"></div><div class="prog-icon eng">⚙️</div><div class="prog-title">Engineering Studies</div><p class="prog-desc">Civil, Electrical, Mechanical and more. Industry-linked N1–N6 programmes with hands-on workshop training.</p><div class="prog-meta"><span class="pmeta">N1–N6</span><span class="pmeta">3 Years</span><span class="pmeta">MERSETA</span></div><div class="prog-cta">View Programme →</div></div>
+        <div class="prog-card" data-cat="bus" onclick="showPage('academics')"><div class="prog-card-accent bus"></div><div class="prog-icon bus">💼</div><div class="prog-title">Business Studies</div><p class="prog-desc">Management, Finance, Marketing and Office Admin. Build the skills employers demand across every industry.</p><div class="prog-meta"><span class="pmeta">N4–N6</span><span class="pmeta">18 Months</span><span class="pmeta">SERVICES SETA</span></div><div class="prog-cta">View Programme →</div></div>
+        <div class="prog-card" data-cat="ict" onclick="showPage('academics')"><div class="prog-card-accent ict"></div><div class="prog-icon ict">💻</div><div class="prog-title">Information Technology</div><p class="prog-desc">Computer Science, Networking, Software Development. Cisco-certified and industry-aligned courses.</p><div class="prog-meta"><span class="pmeta">N4–N6</span><span class="pmeta">18 Months</span><span class="pmeta">MICT SETA</span></div><div class="prog-cta">View Programme →</div></div>
+        <div class="prog-card" data-cat="edu" onclick="showPage('academics')"><div class="prog-card-accent edu"></div><div class="prog-icon edu">📚</div><div class="prog-title">Education (NATED)</div><p class="prog-desc">Early Childhood Development, Adult Education & Training. Make a difference in your community.</p><div class="prog-meta"><span class="pmeta">N4–N6</span><span class="pmeta">2 Years</span><span class="pmeta">ETDP SETA</span></div><div class="prog-cta">View Programme →</div></div>
+        <div class="prog-card" data-cat="eng" onclick="showPage('academics')"><div class="prog-card-accent eng"></div><div class="prog-icon eng">🏗️</div><div class="prog-title">Civil Engineering</div><p class="prog-desc">Structural, surveying and construction fundamentals. Gateway to government infrastructure projects and CIDB registration.</p><div class="prog-meta"><span class="pmeta">N1–N6</span><span class="pmeta">3 Years</span><span class="pmeta">CETA</span></div><div class="prog-cta">View Programme →</div></div>
+        <div class="prog-card" data-cat="bus" onclick="showPage('academics')"><div class="prog-card-accent bus"></div><div class="prog-icon bus">📊</div><div class="prog-title">Financial Management</div><p class="prog-desc">Accounting, cost management, and financial reporting. Open doors in banking, government and audit firms.</p><div class="prog-meta"><span class="pmeta">N4–N6</span><span class="pmeta">18 Months</span><span class="pmeta">FASSET</span></div><div class="prog-cta">View Programme →</div></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn-hero-primary" style="background:var(--blue)" onclick="showPage('academics')">View All 45+ Programmes →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWS -->
+  <div class="section">
+    <div class="sec-eyebrow">Stay Informed</div>
+    <h2 class="sec-h">News & Announcements</h2>
+    <div class="news-grid">
+      <div class="news-featured">
+        <div class="news-img-hero"><span class="news-cat-badge">Admissions</span></div>
+        <div class="news-body">
+          <div class="news-date">30 April 2026</div>
+          <h3 class="news-hl">2026 Applications Now Open – Register Before Spaces Fill</h3>
+          <p class="news-ex">Maluti TVET College is accepting applications for all programmes across all 8 campuses for the 2026 academic year. Students are encouraged to apply early as spaces in popular programmes fill quickly. NSFAS-funded students are welcome.</p>
+          <span class="news-more" onclick="showPage('admissions')">Read more about admissions →</span>
+        </div>
+      </div>
+      <div class="news-side">
+        <div class="news-sm" onclick="showPage('admissions')"><div class="news-sm-cat">NSFAS</div><div class="news-sm-hl">NSFAS 2026 Application Closing Date Confirmed as 31 March 2026</div><div class="news-sm-date">15 January 2026</div></div>
+        <div class="news-sm" onclick="showPage('admissions')"><div class="news-sm-cat">Academic</div><div class="news-sm-hl">Graduation Ceremony Scheduled for October 2026 at Main Campus</div><div class="news-sm-date">10 January 2026</div></div>
+        <div class="news-sm" onclick="showPage('campuses')"><div class="news-sm-cat">Facilities</div><div class="news-sm-hl">New Computer Labs Commissioned at Bethlehem and Harrismith Campuses</div><div class="news-sm-date">5 December 2025</div></div>
+        <div class="news-sm" onclick="showPage('student-life')"><div class="news-sm-cat">Sports</div><div class="news-sm-hl">Maluti TVET Football Team Advances to Provincial Championship</div><div class="news-sm-date">28 November 2025</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-inner">
+      <div class="cta-left">
+        <h2>Ready to Build<br>Your <em>Career?</em></h2>
+        <p>Join over 25,000 students studying at Maluti TVET College. With NSFAS bursaries covering tuition, meals, transport and accommodation — there's no reason to wait.</p>
+        <div class="cta-btns">
+          <button class="btn-white" onclick="openModal()">Apply for 2026</button>
+          <button class="btn-outline-white" onclick="showPage('contact')">Talk to Admissions</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem">Our Campuses</div>
+        <div class="campus-cards">
+          <div class="campus-mini" onclick="showPage('campuses')"><h4>Main Campus</h4><p>Phuthaditjhaba</p><span>45 Programmes</span></div>
+          <div class="campus-mini" onclick="showPage('campuses')"><h4>Bethlehem</h4><p>Bethlehem</p><span>30 Programmes</span></div>
+          <div class="campus-mini" onclick="showPage('campuses')"><h4>Harrismith</h4><p>Harrismith</p><span>22 Programmes</span></div>
+          <div class="campus-mini" onclick="showPage('campuses')"><h4>Bonamelo</h4><p>Phuthaditjhaba</p><span>18 Programmes</span></div>
+        </div>
+        <div style="margin-top:1rem;text-align:right"><span style="font-size:13px;color:rgba(255,255,255,0.45);cursor:pointer" onclick="showPage('campuses')">View all 8 campuses →</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img id="footer-logo" src="" alt="Maluti TVET">
+          <p>Maluti TVET College is a public higher education and training institution in the Free State, committed to delivering quality vocational education that transforms lives and communities.</p>
+          <div class="footer-socials">
+            <button class="social-btn" onclick="window.open('https://facebook.com','_blank')">f</button>
+            <button class="social-btn" onclick="window.open('https://twitter.com','_blank')">𝕏</button>
+            <button class="social-btn" onclick="window.open('https://linkedin.com','_blank')">in</button>
+            <button class="social-btn" onclick="window.open('https://youtube.com','_blank')">▶</button>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Academics</h4>
+          <span class="footer-link" onclick="showPage('academics')">All Programmes</span>
+          <span class="footer-link" onclick="showPage('academics')">Engineering</span>
+          <span class="footer-link" onclick="showPage('academics')">Business Studies</span>
+          <span class="footer-link" onclick="showPage('academics')">ICT</span>
+          <span class="footer-link" onclick="showPage('academics')">NCV Programmes</span>
+        </div>
+        <div class="footer-col">
+          <h4>Admissions</h4>
+          <span class="footer-link" onclick="openModal()">Apply Online</span>
+          <span class="footer-link" onclick="showPage('admissions')">Entry Requirements</span>
+          <a class="footer-link" href="https://nsfas.org.za" target="_blank">NSFAS Funding</a>
+          <span class="footer-link" onclick="showPage('admissions')">Academic Calendar</span>
+          <span class="footer-link" onclick="showPage('student-life')">Student Support</span>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <span class="footer-link">058 303 5011</span>
+          <span class="footer-link">info@malutitvet.co.za</span>
+          <span class="footer-link">Phuthaditjhaba, 9866</span>
+          <span class="footer-link" onclick="showPage('campuses')">Find a Campus</span>
+          <span class="footer-link" onclick="showPage('contact')">Send a Message</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Maluti TVET College. All rights reserved. | Department of Higher Education and Training.</p>
+        <div class="footer-bottom-links">
+          <a>Privacy Policy</a><a>Terms of Use</a><a>Accessibility</a><a onclick="showPage('contact')">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== ACADEMICS ==================== -->
+<div class="page" id="page-academics">
+  <div class="page-hero-sub">
+    <div class="breadcrumb" style="max-width:1400px;margin:0 auto"><span onclick="showPage('home')">Home</span> / Academics</div>
+    <div style="max-width:1400px;margin:0 auto">
+      <h1>Academic Programmes</h1>
+      <p>45+ nationally accredited qualifications across Engineering, Business, ICT and Education. Find your programme and apply today.</p>
+    </div>
+  </div>
+  <div style="background:white;border-bottom:1px solid var(--border);padding:1rem 3rem">
+    <div style="max-width:1400px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span style="font-size:11px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.07em">Filter:</span>
+      <button class="chip active" onclick="filterChip(this,'all-ac')">All</button>
+      <button class="chip" onclick="filterChip(this,'eng-ac')">Engineering</button>
+      <button class="chip" onclick="filterChip(this,'bus-ac')">Business</button>
+      <button class="chip" onclick="filterChip(this,'ict-ac')">ICT</button>
+      <button class="chip" onclick="filterChip(this,'edu-ac')">Education</button>
+      <button class="chip" onclick="filterChip(this,'ncv-ac')">NCV</button>
+      <input class="search-box" placeholder="🔍 Search programmes..." oninput="searchProgs(this)">
+    </div>
+  </div>
+  <div style="max-width:1400px;margin:0 auto;padding:2rem 3rem 5rem">
+    <div class="prog-full-grid" id="full-prog-grid">
+      <div class="prog-row" data-cat="eng" onclick="openModal()"><div class="prog-num-badge eng">ENG</div><div class="prog-row-info"><h3>Electrical Engineering</h3><p>Electronics, power systems, control and instrumentation. Leads to artisan and technician qualifications.</p><div class="prog-chips"><span class="pchip">N1–N6</span><span class="pchip">3 Years</span><span class="pchip">MERSETA</span></div></div></div>
+      <div class="prog-row" data-cat="eng" onclick="openModal()"><div class="prog-num-badge eng">ENG</div><div class="prog-row-info"><h3>Mechanical Engineering</h3><p>Fitting & turning, boilermaking, welding and automotive mechanics. Industry partnerships for workplace learning.</p><div class="prog-chips"><span class="pchip">N1–N6</span><span class="pchip">3 Years</span><span class="pchip">MERSETA</span></div></div></div>
+      <div class="prog-row" data-cat="eng" onclick="openModal()"><div class="prog-num-badge eng">ENG</div><div class="prog-row-info"><h3>Civil Engineering</h3><p>Structural analysis, surveying, and construction. Gateway to CIDB-registered contractors and public works.</p><div class="prog-chips"><span class="pchip">N1–N6</span><span class="pchip">3 Years</span><span class="pchip">CETA</span></div></div></div>
+      <div class="prog-row" data-cat="bus" onclick="openModal()"><div class="prog-num-badge bus">BUS</div><div class="prog-row-info"><h3>Public Management</h3><p>Local government, public administration and community development. Ideal for careers in the public sector.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">18 Months</span><span class="pchip">LG SETA</span></div></div></div>
+      <div class="prog-row" data-cat="bus" onclick="openModal()"><div class="prog-num-badge bus">BUS</div><div class="prog-row-info"><h3>Financial Management</h3><p>Cost accounting, financial statements, budget management. Leads to roles in banking and government finance.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">18 Months</span><span class="pchip">FASSET</span></div></div></div>
+      <div class="prog-row" data-cat="bus" onclick="openModal()"><div class="prog-num-badge bus">BUS</div><div class="prog-row-info"><h3>Marketing Management</h3><p>Consumer behaviour, digital marketing, brand management and sales strategy for the modern economy.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">18 Months</span><span class="pchip">SERVICES SETA</span></div></div></div>
+      <div class="prog-row" data-cat="ict" onclick="openModal()"><div class="prog-num-badge ict">ICT</div><div class="prog-row-info"><h3>Information Technology</h3><p>Software development, database management, and systems analysis. Cisco-aligned networking modules included.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">18 Months</span><span class="pchip">MICT SETA</span></div></div></div>
+      <div class="prog-row" data-cat="ict" onclick="openModal()"><div class="prog-num-badge ict">ICT</div><div class="prog-row-info"><h3>Computer Networking</h3><p>LAN, WAN, routers, switches and network security. Cisco CCNA foundation pathways available.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">18 Months</span><span class="pchip">Cisco Aligned</span></div></div></div>
+      <div class="prog-row" data-cat="edu" onclick="openModal()"><div class="prog-num-badge edu">EDU</div><div class="prog-row-info"><h3>Early Childhood Development</h3><p>Foundation Phase teaching, child development and ECD centre management. SACE-accredited programme.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">2 Years</span><span class="pchip">ETDP SETA</span></div></div></div>
+      <div class="prog-row" data-cat="edu" onclick="openModal()"><div class="prog-num-badge edu">EDU</div><div class="prog-row-info"><h3>Adult Education & Training</h3><p>Community literacy, numeracy facilitation and life skills. Serve communities and drive social development.</p><div class="prog-chips"><span class="pchip">N4–N6</span><span class="pchip">2 Years</span><span class="pchip">ETDP SETA</span></div></div></div>
+      <div class="prog-row" data-cat="ncv" onclick="openModal()"><div class="prog-num-badge eng">NCV</div><div class="prog-row-info"><h3>NCV Engineering & Related Design</h3><p>National Certificate Vocational Level 2–4. Practical skills-based learning with DHET curriculum.</p><div class="prog-chips"><span class="pchip">Level 2–4</span><span class="pchip">3 Years</span><span class="pchip">DHET</span></div></div></div>
+      <div class="prog-row" data-cat="ncv" onclick="openModal()"><div class="prog-num-badge bus">NCV</div><div class="prog-row-info"><h3>NCV Business & Office Administration</h3><p>Practical office, business and administrative skills for the modern workplace.</p><div class="prog-chips"><span class="pchip">Level 2–4</span><span class="pchip">3 Years</span><span class="pchip">DHET</span></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn-hero-primary" style="background:var(--green)" onclick="openModal()">Apply for Your Chosen Programme →</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-bottom" style="border-top:none;padding-top:0">
+        <p>© 2026 Maluti TVET College | <span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.5)">Back to Home</span></p>
+        <div class="footer-bottom-links"><a onclick="showPage('contact')">Contact Us</a><a onclick="openModal()">Apply</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== CAMPUSES ==================== -->
+<div class="page" id="page-campuses">
+  <div class="page-hero-sub">
+    <div class="breadcrumb" style="max-width:1400px;margin:0 auto"><span onclick="showPage('home')">Home</span> / Campuses</div>
+    <div style="max-width:1400px;margin:0 auto">
+      <h1>8 Campuses Across<br>the Free State</h1>
+      <p>From Phuthaditjhaba to Bethlehem and Harrismith — find the campus closest to you and start your journey.</p>
+    </div>
+  </div>
+  <div class="campus-layout">
+    <div class="campus-left">
+      <div style="font-size:12px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:1rem">Select a Campus</div>
+      <div class="campus-grid-sel">
+        <div class="campus-sel-card sel" onclick="selectCampus(this,'Main Campus','Phuthaditjhaba, QwaQwa, Free State','058 303 5011','45','Library,Computer Lab,Workshop,Cafeteria,Sports Field,Residence')"><div class="csn">Main Campus</div><div class="csl">📍 Phuthaditjhaba, QwaQwa</div><div class="cst"><span class="ctag">Engineering</span><span class="ctag">Business</span><span class="ctag">ICT</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Bethlehem Campus','Bethlehem, Free State','058 303 6011','30','Library,Computer Lab,Engineering Workshop,Cafeteria')"><div class="csn">Bethlehem Campus</div><div class="csl">📍 Bethlehem</div><div class="cst"><span class="ctag">Engineering</span><span class="ctag">Business</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Harrismith Campus','Harrismith, Free State','036 637 3021','22','Library,Computer Lab,NCV Centre')"><div class="csn">Harrismith Campus</div><div class="csl">📍 Harrismith</div><div class="cst"><span class="ctag">NCV</span><span class="ctag">Business</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Bonamelo Campus','Phuthaditjhaba, Free State','058 713 0525','18','Library,ECD Centre,NCV Classrooms')"><div class="csn">Bonamelo Campus</div><div class="csl">📍 Phuthaditjhaba</div><div class="cst"><span class="ctag">Education</span><span class="ctag">NCV</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Itemoheleng Campus','Phuthaditjhaba, Free State','058 303 5011','15','Engineering Workshops,Labs')"><div class="csn">Itemoheleng Campus</div><div class="csl">📍 Phuthaditjhaba</div><div class="cst"><span class="ctag">Engineering</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Kwetlisong Campus','Riverside, Free State','058 303 5011','12','Agricultural Lab,NCV Centre')"><div class="csn">Kwetlisong Campus</div><div class="csl">📍 Riverside</div><div class="cst"><span class="ctag">NCV</span><span class="ctag">Agriculture</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Lere la Tshepe Campus','Tseki Village, Free State','058 303 5011','10','NCV Classrooms,Community Centre')"><div class="csn">Lere la Tshepe</div><div class="csl">📍 Tseki Village</div><div class="cst"><span class="ctag">NCV</span></div></div>
+        <div class="campus-sel-card" onclick="selectCampus(this,'Sefikeng Campus','Phuthaditjhaba, Free State','058 713 0525','16','Computer Lab,Business Centre')"><div class="csn">Sefikeng Campus</div><div class="csl">📍 Phuthaditjhaba</div><div class="cst"><span class="ctag">Education</span><span class="ctag">Business</span></div></div>
+      </div>
+    </div>
+    <div class="campus-right">
+      <div class="campus-detail-header"><h3 id="cd-name">Main Campus</h3><p id="cd-loc">Phuthaditjhaba, QwaQwa, Free State</p></div>
+      <div class="campus-map-placeholder"><div class="map-pin-marker"></div><div class="map-label" id="cd-map-lbl">Phuthaditjhaba</div></div>
+      <div class="c-detail-grid">
+        <div class="c-dbox"><div class="c-dbox-lbl">Phone</div><div class="c-dbox-val" id="cd-phone">058 303 5011</div></div>
+        <div class="c-dbox"><div class="c-dbox-lbl">Programmes</div><div class="c-dbox-val" id="cd-progs">45 Offered</div></div>
+      </div>
+      <div class="fac-lbl">Facilities</div>
+      <div class="fac-grid" id="cd-facs"><span class="ctag">Library</span><span class="ctag">Computer Lab</span><span class="ctag">Workshop</span><span class="ctag">Cafeteria</span><span class="ctag">Sports Field</span><span class="ctag">Residence</span></div>
+      <button class="btn-campus-apply" onclick="openModal()">Apply at this Campus →</button>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-inner"><div class="footer-bottom" style="border-top:none;padding-top:0"><p>© 2026 Maluti TVET College | <span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.5)">Back to Home</span></p><div class="footer-bottom-links"><a onclick="showPage('contact')">Contact</a><a onclick="openModal()">Apply</a></div></div></div></footer>
+</div>
+
+<!-- ==================== ADMISSIONS ==================== -->
+<div class="page" id="page-admissions">
+  <div class="page-hero-sub">
+    <div class="breadcrumb" style="max-width:1400px;margin:0 auto"><span onclick="showPage('home')">Home</span> / Admissions</div>
+    <div style="max-width:1400px;margin:0 auto">
+      <h1>Join Maluti TVET College</h1>
+      <p>Applications for 2026 are open. Follow our straightforward process and join thousands of students building careers with us.</p>
+    </div>
+  </div>
+  <div class="adm-layout">
+    <div class="adm-main">
+      <div class="sec-eyebrow" style="margin-top:1rem">Step-by-Step</div>
+      <h2 class="sec-h">How to Apply</h2>
+      <div class="steps-visual">
+        <div class="step-v done"><div class="step-circle">✓</div><h4>Check Requirements</h4><p>Review entry requirements for your programme</p></div>
+        <div class="step-v active"><div class="step-circle">2</div><h4>Complete Form</h4><p>Fill in your personal and academic details</p></div>
+        <div class="step-v"><div class="step-circle">3</div><h4>Submit Documents</h4><p>Upload ID, results, and supporting docs</p></div>
+        <div class="step-v"><div class="step-circle">4</div><h4>Await Outcome</h4><p>Track your status via the student portal</p></div>
+      </div>
+      <div class="req-cards-grid">
+        <div class="req-c">
+          <h3>📋 Entry Requirements</h3>
+          <div class="req-item"><div class="req-check">✓</div><p>Grade 9 minimum (or Grade 12 for N4–N6 programmes)</p></div>
+          <div class="req-item"><div class="req-check">✓</div><p>South African ID document or birth certificate</p></div>
+          <div class="req-item"><div class="req-check">✓</div><p>Most recent school report or results transcript</p></div>
+          <div class="req-item"><div class="req-check">✓</div><p>Proof of residence (not older than 3 months)</p></div>
+          <div class="req-item"><div class="req-check">✓</div><p>2 × passport-size photographs</p></div>
+          <div class="info-box green">N4/N5/N6 programmes require a matric certificate or relevant N3 with Mathematics or Technical Drawing.</div>
+        </div>
+        <div class="req-c">
+          <h3>💰 Funding & Fees</h3>
+          <p style="font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px">NSFAS Bursary</p>
+          <p style="font-size:13px;color:var(--text-mid);line-height:1.65;margin-bottom:14px">NSFAS covers tuition, accommodation, transport, and meal allowances for qualifying students. Apply at nsfas.org.za before the deadline.</p>
+          <div class="info-box blue">NSFAS 2026 Deadline: 31 March 2026. Household income must be below R350,000/year to qualify.</div>
+          <p style="font-size:13px;font-weight:700;color:var(--blue);margin:1.25rem 0 8px">Other Funding Options</p>
+          <div class="req-item"><div class="req-check" style="background:var(--blue)">✓</div><p>SETA bursaries through industry partners</p></div>
+          <div class="req-item"><div class="req-check" style="background:var(--blue)">✓</div><p>College merit bursaries for academic excellence</p></div>
+          <div class="req-item"><div class="req-check" style="background:var(--blue)">✓</div><p>Private bursary programmes via employer sponsors</p></div>
+        </div>
+      </div>
+      <div class="dates-section">
+        <h3>📅 2026 Academic Calendar</h3>
+        <table class="dates-table">
+          <thead><tr><th>Event</th><th>Date</th><th>Campus</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>2026 Applications Open</td><td>1 November 2025</td><td>All Campuses</td><td><span class="status-open">Open</span></td></tr>
+            <tr><td>NSFAS Applications Deadline</td><td>31 March 2026</td><td>All Campuses</td><td><span class="status-open">Open</span></td></tr>
+            <tr><td>Trimester 1 Begins</td><td>19 January 2026</td><td>All Campuses</td><td><span class="status-soon">Upcoming</span></td></tr>
+            <tr><td>Mid-year Examinations</td><td>June 2026</td><td>All Campuses</td><td><span class="status-soon">Upcoming</span></td></tr>
+            <tr><td>Graduation Ceremony</td><td>October 2026</td><td>Main Campus</td><td><span class="status-soon">Upcoming</span></td></tr>
+            <tr><td>Year-end Examinations</td><td>November 2026</td><td>All Campuses</td><td><span class="status-soon">Upcoming</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="adm-sidebar">
+      <div class="adm-apply-form">
+        <h3>Apply Now – 2026</h3>
+        <p>Start your application immediately</p>
+        <div class="form-field"><label>First Name</label><input type="text" placeholder="First name"></div>
+        <div class="form-field"><label>Surname</label><input type="text" placeholder="Surname"></div>
+        <div class="form-field"><label>ID Number</label><input type="text" placeholder="SA ID number"></div>
+        <div class="form-field"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-field"><label>Phone</label><input type="tel" placeholder="076 000 0000"></div>
+        <div class="form-field"><label>Programme</label><select><option>Select programme...</option><option>Engineering (N1–N6)</option><option>Business Studies (N4–N6)</option><option>ICT (N4–N6)</option><option>Education (NATED)</option><option>NCV Level 2–4</option></select></div>
+        <div class="form-field"><label>Campus</label><select><option>Select campus...</option><option>Main Campus</option><option>Bethlehem</option><option>Harrismith</option><option>Bonamelo</option><option>Other</option></select></div>
+        <button class="btn-full" onclick="submitQuickForm()">Submit Application →</button>
+        <div class="info-box green" style="margin-top:1rem;font-size:12px">✅ You'll receive a confirmation email within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-inner"><div class="footer-bottom" style="border-top:none;padding-top:0"><p>© 2026 Maluti TVET College | <span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.5)">Back to Home</span></p><div class="footer-bottom-links"><a onclick="showPage('contact')">Contact</a><a href="https://nsfas.org.za" target="_blank">NSFAS</a></div></div></div></footer>
+</div>
+
+<!-- ==================== STUDENT LIFE ==================== -->
+<div class="page" id="page-student-life">
+  <div class="page-hero-sub">
+    <div class="breadcrumb" style="max-width:1400px;margin:0 auto"><span onclick="showPage('home')">Home</span> / Student Life</div>
+    <div style="max-width:1400px;margin:0 auto">
+      <h1>Life at Maluti TVET</h1>
+      <p>College is far more than classrooms. Discover sports, culture, student governance, and a community that has your back.</p>
+    </div>
+  </div>
+  <div class="section" style="padding-top:3rem;max-width:100%;background:var(--off-white)">
+    <div style="max-width:1400px;margin:0 auto">
+      <div class="life-hero-cards">
+        <div class="life-main-card"><h3>Campus Culture & Community</h3><p>A vibrant, multicultural student community across 8 campuses. Celebrate heritage, connect with peers, and find your place at Maluti TVET.</p></div>
+        <div class="life-sm-card" style="background:linear-gradient(135deg,var(--green),var(--green-bright))"><h4>Sports & Athletics</h4><p>Football, netball, athletics and more</p></div>
+        <div class="life-sm-card" style="background:linear-gradient(135deg,var(--blue-mid),var(--blue))"><h4>Arts & Culture</h4><p>Drama, music, choirs, cultural shows</p></div>
+      </div>
+      <div class="support-grid">
+        <div class="support-card"><div class="sup-icon">🏥</div><h4>Health & Wellness</h4><p>On-campus health clinics, counselling services, and HIV/AIDS awareness programmes available at all campuses.</p><div class="sup-link" onclick="showPage('contact')">Learn more →</div></div>
+        <div class="support-card"><div class="sup-icon">🤝</div><h4>Student Representative Council</h4><p>Have a voice in how the college runs. The SRC represents students at all management levels and drives campus activities.</p><div class="sup-link" onclick="showPage('contact')">Meet the SRC →</div></div>
+        <div class="support-card"><div class="sup-icon">🏠</div><h4>Accommodation</h4><p>Safe, affordable residence options near all campuses. NSFAS covers accommodation costs for qualifying students.</p><div class="sup-link" onclick="showPage('admissions')">Apply for housing →</div></div>
+        <div class="support-card"><div class="sup-icon">📚</div><h4>Library & Learning Resources</h4><p>Modern libraries with digital databases, open computer labs, printing facilities, and quiet study areas at every campus.</p><div class="sup-link" onclick="showPage('campuses')">Find your campus library →</div></div>
+        <div class="support-card"><div class="sup-icon">⚽</div><h4>Sports Clubs</h4><p>Football, netball, athletics, chess and more. Represent your campus in inter-college tournaments and provincial championships.</p><div class="sup-link" onclick="showPage('contact')">Join a team →</div></div>
+        <div class="support-card"><div class="sup-icon">💼</div><h4>Career Centre</h4><p>CV writing workshops, interview preparation, and job placement partnerships with regional and national employers.</p><div class="sup-link" onclick="showPage('contact')">Career support →</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-inner"><div class="footer-bottom" style="border-top:none;padding-top:0"><p>© 2026 Maluti TVET College | <span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.5)">Back to Home</span></p><div class="footer-bottom-links"><a onclick="showPage('contact')">Contact</a><a onclick="openModal()">Apply</a></div></div></div></footer>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="page-contact">
+  <div class="page-hero-sub">
+    <div class="breadcrumb" style="max-width:1400px;margin:0 auto"><span onclick="showPage('home')">Home</span> / Contact</div>
+    <div style="max-width:1400px;margin:0 auto">
+      <h1>Get In Touch</h1>
+      <p>Whether about admissions, programmes, funding or facilities — our team is ready to help you.</p>
+    </div>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info-panel">
+      <div style="font-size:11px;font-weight:800;color:var(--green-accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">We're Here to Help</div>
+      <h2>Contact Maluti TVET</h2>
+      <p>Reach out through any of the channels below. Our admissions, financial aid, and student services staff are available during office hours.</p>
+      <div class="contact-detail"><div class="c-icon">📍</div><div class="c-text"><h5>Main Campus Address</h5><p>Private Bag X522, Phuthaditjhaba, 9866, Free State</p></div></div>
+      <div class="contact-detail"><div class="c-icon">📞</div><div class="c-text"><h5>General Enquiries</h5><p>058 303 5011</p></div></div>
+      <div class="contact-detail"><div class="c-icon">✉️</div><div class="c-text"><h5>Email</h5><p>info@malutitvet.co.za</p></div></div>
+      <div class="contact-detail"><div class="c-icon">🕒</div><div class="c-text"><h5>Office Hours</h5><p>Monday – Friday: 07:30 – 16:00</p></div></div>
+      <div class="campus-phones">
+        <h4>All Campus Numbers</h4>
+        <div class="campus-phones-grid">
+          <div class="cp-item">Bethlehem: 058 303 6011</div>
+          <div class="cp-item">Harrismith: 036 637 3021</div>
+          <div class="cp-item">Bonamelo: 058 713 0525</div>
+          <div class="cp-item">Sefikeng: 058 713 0525</div>
+          <div class="cp-item">Itemoheleng: 058 303 5011</div>
+          <div class="cp-item">Kwetlisong: 058 303 5011</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-panel">
+      <h3>Send Us a Message</h3>
+      <p>We respond to all enquiries within 1–2 business days</p>
+      <div class="form-2col">
+        <div class="form-field"><label>First Name</label><input type="text" placeholder="Your first name" id="c-fname"></div>
+        <div class="form-field"><label>Surname</label><input type="text" placeholder="Your surname"></div>
+      </div>
+      <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="076 000 0000"></div>
+      <div class="form-field"><label>Enquiry Type</label>
+        <select>
+          <option>Select enquiry type...</option>
+          <option>Admissions</option>
+          <option>Programmes & Courses</option>
+          <option>NSFAS & Funding</option>
+          <option>Student Portal Access</option>
+          <option>Accommodation</option>
+          <option>Career Services</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Message</label><textarea placeholder="How can we help you today?" id="c-msg"></textarea></div>
+      <button class="c-submit" onclick="submitContact()">Send Message →</button>
+      <div class="info-box blue" style="margin-top:1rem;font-size:12px">📞 For urgent queries, call us directly: <strong>058 303 5011</strong></div>
+    </div>
+  </div>
+  <div class="faq-wrap" style="max-width:100%">
+    <div style="max-width:1400px;margin:0 auto">
+      <div class="sec-eyebrow">Common Questions</div>
+      <h2 class="sec-h" style="margin-bottom:2rem">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item"><div class="faq-q">When do 2026 applications close?</div><div class="faq-a">Applications for 2026 close on 31 March 2026. We recommend applying early as spaces in popular programmes fill quickly. Late applications may be considered subject to availability.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I apply for NSFAS funding?</div><div class="faq-a">Visit nsfas.org.za to create your account and complete your funding application. Our Financial Aid Office can also assist you in person at any campus. The 2026 deadline is 31 March 2026.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I study at any Maluti TVET campus?</div><div class="faq-a">Yes, but not all programmes are offered at every campus. Check each campus's programme listing on our Campuses page before applying. Apply to your nearest campus offering your chosen programme.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you offer part-time or distance study?</div><div class="faq-a">Selected programmes are available on a part-time basis. Contact our admissions office for details on which courses qualify for part-time registration and available timetable options.</div></div>
+        <div class="faq-item"><div class="faq-q">What documents do I need to apply?</div><div class="faq-a">You need your SA ID or birth certificate, your most recent school report, proof of residence (not older than 3 months), and 2 passport-size photos. N4 applicants need a matric certificate.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I access the student portal?</div><div class="faq-a">Once registered, you receive your student number and portal credentials by email. Visit the Student Intranet via the link at the top of the page or contact the IT helpdesk at your campus.</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer"><div class="footer-inner"><div class="footer-bottom" style="border-top:none;padding-top:0"><p>© 2026 Maluti TVET College | <span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.5)">Back to Home</span></p><div class="footer-bottom-links"><a onclick="openModal()">Apply Now</a><a href="https://nsfas.org.za" target="_blank">NSFAS</a></div></div></div></footer>
+</div>
+
+<!-- ==================== STUDENT INTRANET ==================== -->
+<div class="page" id="page-intranet">
+<div class="intranet-body">
+  <div class="return-bar">
+    <button class="return-btn" onclick="showPage('home')">← Return to Main Website</button>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4)">You are viewing the Student Intranet (SharePoint-integrated)</span>
+  </div>
+  <div class="intranet-topbar">
+    <div class="intranet-topbar-logo">
+      <img id="intranet-logo" src="" alt="Maluti TVET">
+      <div>
+        <div class="intranet-topbar-title">Maluti TVET – Student Intranet</div>
+        <div class="intranet-topbar-sub">Powered by Microsoft SharePoint · Microsoft 365</div>
+      </div>
+    </div>
+    <div class="intranet-topbar-right">
+      <input class="intranet-search" placeholder="🔍 Search documents, courses, staff...">
+      <div class="intranet-notif"><span style="font-size:22px;cursor:pointer">🔔</span><div class="notif-dot"></div></div>
+      <div class="user-chip">
+        <div class="user-avatar">ST</div>
+        <div><div class="user-name-txt">S. Tladi</div><div class="user-role-txt">Student · N4 Engineering</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="intranet-nav">
+    <button class="intranet-nav-link in-active" onclick="setIntranetPage('dashboard',this)">🏠 Dashboard</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('courses',this)">📖 My Courses</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('results',this)">📊 Results</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('documents',this)">📁 Documents</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('finance',this)">💰 Finance</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('library',this)">📚 e-Library</button>
+    <button class="intranet-nav-link" onclick="setIntranetPage('support',this)">🤝 Support</button>
+    <div class="intranet-nav-right">
+      <button class="intranet-btn outline" onclick="window.open('https://malutitvet.co.za','_blank')">College Website</button>
+      <button class="intranet-btn primary" onclick="showPage('home')">Sign Out</button>
+    </div>
+  </div>
+  <div class="intranet-layout">
+    <!-- SIDEBAR -->
+    <div class="intranet-sidebar">
+      <div class="sidebar-section-lbl">Main Menu</div>
+      <div class="sidebar-link s-active" onclick="setIntranetPage('dashboard',null)"><div class="sidebar-icon">🏠</div>Dashboard</div>
+      <div class="sidebar-link" onclick="setIntranetPage('courses',null)"><div class="sidebar-icon">📖</div>My Courses<span class="sidebar-badge">4</span></div>
+      <div class="sidebar-link" onclick="setIntranetPage('results',null)"><div class="sidebar-icon">📊</div>Results & Marks</div>
+      <div class="sidebar-link" onclick="setIntranetPage('documents',null)"><div class="sidebar-icon">📁</div>Documents<span class="sidebar-badge">2</span></div>
+      <div class="sidebar-link" onclick="setIntranetPage('finance',null)"><div class="sidebar-icon">💰</div>Finance & NSFAS</div>
+      <div class="sidebar-link" onclick="setIntranetPage('library',null)"><div class="sidebar-icon">📚</div>e-Library</div>
+      <div class="sidebar-section-lbl">Services</div>
+      <div class="sidebar-link" onclick="setIntranetPage('support',null)"><div class="sidebar-icon">🤝</div>Student Support</div>
+      <div class="sidebar-link" onclick="alert('Opening Microsoft Teams...')"><div class="sidebar-icon">💬</div>Teams Chat</div>
+      <div class="sidebar-link" onclick="alert('Opening SharePoint Calendar...')"><div class="sidebar-icon">📅</div>Calendar</div>
+      <div class="sidebar-link" onclick="alert('Opening OneDrive for Students...')"><div class="sidebar-icon">☁️</div>OneDrive</div>
+      <div class="sidebar-section-lbl">Admin</div>
+      <div class="sidebar-link" onclick="alert('Opening registration portal...')"><div class="sidebar-icon">📝</div>Registration</div>
+      <div class="sidebar-link" onclick="alert('Opening timetable manager...')"><div class="sidebar-icon">⏰</div>Timetable</div>
+      <div class="sidebar-link" onclick="alert('Opening accommodation portal...')"><div class="sidebar-icon">🏠</div>Accommodation</div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="intranet-main">
+      <!-- DASHBOARD -->
+      <div id="intranet-dashboard">
+        <div class="intranet-welcome">
+          <div class="iw-text"><h2>Good Morning, Sipho! 👋</h2><p>Thursday, 1 May 2026 · Trimester 1 · Week 14 of 18</p></div>
+          <div class="iw-stats">
+            <div class="iw-stat"><div class="iw-stat-num">72%</div><div class="iw-stat-lbl">Attendance</div></div>
+            <div class="iw-stat"><div class="iw-stat-num">B+</div><div class="iw-stat-lbl">Grade</div></div>
+            <div class="iw-stat"><div class="iw-stat-num">4</div><div class="iw-stat-lbl">Modules</div></div>
+          </div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card-header"><div class="dash-card-title">📅 Today's Classes</div><div class="dash-card-action" onclick="setIntranetPage('courses',null)">Full timetable →</div></div>
+            <table class="timetable">
+              <thead><tr><th>Time</th><th>Module</th><th>Venue</th></tr></thead>
+              <tbody>
+                <tr><td>08:00</td><td><div class="tt-module">Mathematics N4 ★</div></td><td>Room A12</td></tr>
+                <tr><td>10:00</td><td><div class="tt-module">Engineering Science</div></td><td>Lab 3</td></tr>
+                <tr><td>13:00</td><td><div class="tt-module green">Industrial Electronics</div></td><td>Workshop 2</td></tr>
+                <tr><td>15:00</td><td><div class="tt-module">English N4</div></td><td>Room B08</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-header"><div class="dash-card-title">📊 Recent Marks</div><div class="dash-card-action" onclick="setIntranetPage('results',null)">Full results →</div></div>
+            <table class="marks-table">
+              <thead><tr><th>Module</th><th>Mark</th><th>Grade</th></tr></thead>
+              <tbody>
+                <tr><td>Mathematics N4</td><td>78%<div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div></td><td><span class="grade-badge grade-b">B</span></td></tr>
+                <tr><td>Engineering Science</td><td>84%<div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div></td><td><span class="grade-badge grade-a">A</span></td></tr>
+                <tr><td>Ind. Electronics</td><td>65%<div class="progress-bar"><div class="progress-fill" style="width:65%;background:var(--blue)"></div></div></td><td><span class="grade-badge grade-c">C</span></td></tr>
+                <tr><td>English N4</td><td>71%<div class="progress-bar"><div class="progress-fill" style="width:71%"></div></div></td><td><span class="grade-badge grade-b">B</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-header"><div class="dash-card-title">📢 College Announcements</div><div class="dash-card-action">View all →</div></div>
+          <div class="ann-item"><div class="ann-icon-i blue">📝</div><div class="ann-text-item"><h4>Mid-term Examinations – Timetable Released</h4><p>The mid-term exam timetable has been published. Check your campus notice board or download from Documents.</p><div class="ann-time">Posted: 30 April 2026 · College Administration</div></div></div>
+          <div class="ann-item"><div class="ann-icon-i green">💰</div><div class="ann-text-item"><h4>NSFAS Monthly Allowance – Processing This Week</h4><p>NSFAS meal and transport allowances for May 2026 are being processed and should reflect by 5 May 2026.</p><div class="ann-time">Posted: 28 April 2026 · Financial Aid Office</div></div></div>
+          <div class="ann-item"><div class="ann-icon-i orange">🏆</div><div class="ann-text-item"><h4>Inter-Campus Sports Day – 15 May 2026</h4><p>All students invited to participate or support. Football, netball and athletics. Register at Student Services.</p><div class="ann-time">Posted: 25 April 2026 · Student Life Office</div></div></div>
+          <div class="ann-item"><div class="ann-icon-i blue">📚</div><div class="ann-text-item"><h4>New e-Library Resources Available</h4><p>Engineering and Business textbooks added to the digital library. Access via the e-Library tab using your student number.</p><div class="ann-time">Posted: 20 April 2026 · Library Services</div></div></div>
+        </div>
+      </div>
+
+      <!-- COURSES -->
+      <div id="intranet-courses" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">My Courses – N4 Electrical Engineering</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="dash-card" style="cursor:pointer"><div class="dash-card-header"><div class="dash-card-title">📐 Mathematics N4</div><div class="dash-card-action" onclick="alert('Opening course materials...')">Materials →</div></div><p style="font-size:13px;color:#4A5568;margin-bottom:12px">Calculus, algebra and engineering mathematics. Lecturer: Mr. Mokoena.</p><div class="progress-bar" style="height:8px"><div class="progress-fill" style="width:78%"></div></div><div style="font-size:12px;color:#64748B;margin-top:4px">Progress: 78% · Week 14/18</div></div>
+          <div class="dash-card" style="cursor:pointer"><div class="dash-card-header"><div class="dash-card-title">⚡ Engineering Science N4</div><div class="dash-card-action" onclick="alert('Opening course materials...')">Materials →</div></div><p style="font-size:13px;color:#4A5568;margin-bottom:12px">Physics applications in engineering. Lecturer: Ms. Dlamini.</p><div class="progress-bar" style="height:8px"><div class="progress-fill" style="width:84%"></div></div><div style="font-size:12px;color:#64748B;margin-top:4px">Progress: 84% · Week 14/18</div></div>
+          <div class="dash-card" style="cursor:pointer"><div class="dash-card-header"><div class="dash-card-title">🔌 Industrial Electronics N4</div><div class="dash-card-action" onclick="alert('Opening course materials...')">Materials →</div></div><p style="font-size:13px;color:#4A5568;margin-bottom:12px">Electronic circuits, PCB design and practical labs. Lecturer: Mr. Sithole.</p><div class="progress-bar" style="height:8px"><div class="progress-fill" style="width:65%;background:var(--blue)"></div></div><div style="font-size:12px;color:#64748B;margin-top:4px">Progress: 65% · Week 14/18</div></div>
+          <div class="dash-card" style="cursor:pointer"><div class="dash-card-header"><div class="dash-card-title">📖 English N4</div><div class="dash-card-action" onclick="alert('Opening course materials...')">Materials →</div></div><p style="font-size:13px;color:#4A5568;margin-bottom:12px">Technical communication and report writing. Lecturer: Mrs. Ntuli.</p><div class="progress-bar" style="height:8px"><div class="progress-fill" style="width:71%"></div></div><div style="font-size:12px;color:#64748B;margin-top:4px">Progress: 71% · Week 14/18</div></div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div id="intranet-results" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">Academic Results – 2026</h2>
+        <div class="dash-card">
+          <table class="marks-table">
+            <thead><tr><th>Module</th><th>Term 1</th><th>Term 2</th><th>Exam</th><th>Final</th><th>Grade</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mathematics N4</strong></td><td>75%</td><td>81%</td><td>—</td><td>78%</td><td><span class="grade-badge grade-b">B</span></td><td><span class="status-open">Pass</span></td></tr>
+              <tr><td><strong>Engineering Science N4</strong></td><td>80%</td><td>88%</td><td>—</td><td>84%</td><td><span class="grade-badge grade-a">A</span></td><td><span class="status-open">Pass</span></td></tr>
+              <tr><td><strong>Industrial Electronics N4</strong></td><td>60%</td><td>70%</td><td>—</td><td>65%</td><td><span class="grade-badge grade-c">C</span></td><td><span class="status-soon">Ongoing</span></td></tr>
+              <tr><td><strong>English N4</strong></td><td>68%</td><td>74%</td><td>—</td><td>71%</td><td><span class="grade-badge grade-b">B</span></td><td><span class="status-open">Pass</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div id="intranet-documents" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">📁 My Documents (SharePoint Library)</h2>
+        <div class="dash-card">
+          <p style="font-size:13px;color:#4A5568;margin-bottom:1.25rem">Documents synced from your Microsoft SharePoint library. Access, download, and share from any device.</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">📄</span><div><div style="font-size:13px;font-weight:700;color:#1E293B">2026 Exam Timetable.pdf</div><div style="font-size:11px;color:#94A3B8">Added 30 Apr 2026 · 245 KB</div></div></div><button class="intranet-btn primary" onclick="alert('Downloading 2026 Exam Timetable.pdf...')">Download</button></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#FFF8E1;border-radius:10px;border:1px solid #FFE082"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">📊</span><div><div style="font-size:13px;font-weight:700;color:#1E293B">NSFAS 2026 Agreement Form.pdf</div><div style="font-size:11px;color:#F57F17">⚠️ Action Required · 1.2 MB</div></div></div><button class="intranet-btn primary" onclick="alert('Opening NSFAS Agreement Form for signing...')">Open & Sign</button></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">📝</span><div><div style="font-size:13px;font-weight:700;color:#1E293B">Mathematics N4 Lecture Notes – Week 12.pdf</div><div style="font-size:11px;color:#94A3B8">Added 28 Apr 2026 · 3.4 MB</div></div></div><button class="intranet-btn outline" style="border-color:#E2E8F0;color:#4A5568" onclick="alert('Downloading lecture notes...')">Download</button></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:#F8FAFC;border-radius:10px;border:1px solid #E2E8F0"><div style="display:flex;align-items:center;gap:12px"><span style="font-size:22px">📋</span><div><div style="font-size:13px;font-weight:700;color:#1E293B">Proof of Registration 2026.pdf</div><div style="font-size:11px;color:#94A3B8">Added 20 Jan 2026 · 180 KB</div></div></div><button class="intranet-btn outline" style="border-color:#E2E8F0;color:#4A5568" onclick="alert('Downloading proof of registration...')">Download</button></div>
+          </div>
+        </div>
+        <div class="sp-note"><strong>💼 Microsoft SharePoint Integration</strong>Documents are stored securely in your college SharePoint library and sync automatically with OneDrive. Access them on any device. Contact IT Support (it@malutitvet.co.za) if you encounter access issues.</div>
+      </div>
+
+      <!-- FINANCE -->
+      <div id="intranet-finance" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">💰 Finance & NSFAS</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+          <div class="dash-card" style="text-align:center"><div style="font-size:30px;margin-bottom:8px">✅</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--green)">NSFAS Approved</div><div style="font-size:12px;color:#64748B">2026 Academic Year</div></div>
+          <div class="dash-card" style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--blue)">R1,250</div><div style="font-size:12px;color:#64748B">Monthly Allowance</div></div>
+          <div class="dash-card" style="text-align:center"><div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--green)">R0</div><div style="font-size:12px;color:#64748B">Outstanding Balance</div></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-header"><div class="dash-card-title">Allowance Payment History</div></div>
+          <table class="marks-table">
+            <thead><tr><th>Month</th><th>Amount</th><th>Type</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>May 2026</td><td>R1,250</td><td>Monthly Allowance</td><td><span class="status-soon">Processing</span></td></tr>
+              <tr><td>April 2026</td><td>R1,250</td><td>Monthly Allowance</td><td><span class="status-open">Paid</span></td></tr>
+              <tr><td>March 2026</td><td>R1,250</td><td>Monthly Allowance</td><td><span class="status-open">Paid</span></td></tr>
+              <tr><td>February 2026</td><td>R1,250</td><td>Monthly Allowance</td><td><span class="status-open">Paid</span></td></tr>
+              <tr><td>January 2026</td><td>R1,250</td><td>Monthly Allowance</td><td><span class="status-open">Paid</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- LIBRARY -->
+      <div id="intranet-library" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">📚 Digital Library</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening Engineering textbook database...')"><div style="font-size:36px;margin-bottom:10px">⚙️</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">Engineering Resources</div><div style="font-size:12px;color:#64748B;margin-top:4px">240 textbooks available</div></div>
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening Business textbook database...')"><div style="font-size:36px;margin-bottom:10px">💼</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">Business Resources</div><div style="font-size:12px;color:#64748B;margin-top:4px">180 textbooks available</div></div>
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening past papers database...')"><div style="font-size:36px;margin-bottom:10px">📝</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">Past Exam Papers</div><div style="font-size:12px;color:#64748B;margin-top:4px">2010–2025 available</div></div>
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening ICT resources...')"><div style="font-size:36px;margin-bottom:10px">💻</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">ICT Resources</div><div style="font-size:12px;color:#64748B;margin-top:4px">95 textbooks available</div></div>
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening journal database...')"><div style="font-size:36px;margin-bottom:10px">📰</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">Academic Journals</div><div style="font-size:12px;color:#64748B;margin-top:4px">JSTOR access included</div></div>
+          <div class="dash-card" style="cursor:pointer;text-align:center" onclick="alert('Opening video lectures...')"><div style="font-size:36px;margin-bottom:10px">🎥</div><div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:var(--blue)">Video Lectures</div><div style="font-size:12px;color:#64748B;margin-top:4px">Stream on any device</div></div>
+        </div>
+      </div>
+
+      <!-- SUPPORT -->
+      <div id="intranet-support" style="display:none">
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--blue);margin-bottom:1.5rem">🤝 Student Support Services</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">📞 IT & Portal Helpdesk</h4><p style="font-size:13px;color:#4A5568">Password resets, portal access issues, SharePoint help.<br><strong>it@malutitvet.co.za</strong> or ext. 1200</p></div>
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">💰 Financial Aid Office</h4><p style="font-size:13px;color:#4A5568">NSFAS queries, allowance issues, bursary applications.<br><strong>financial@malutitvet.co.za</strong></p></div>
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">🏥 Health & Wellness</h4><p style="font-size:13px;color:#4A5568">Campus clinic, counselling, mental health support. Walk-in or call <strong>058 303 5011 ext. 110</strong></p></div>
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">📝 Admissions & Records</h4><p style="font-size:13px;color:#4A5568">Proof of registration, transcripts, re-registration.<br><strong>records@malutitvet.co.za</strong></p></div>
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">💼 Career Centre</h4><p style="font-size:13px;color:#4A5568">CV help, interview prep, job placement partnerships with industry.<br><strong>careers@malutitvet.co.za</strong></p></div>
+          <div class="dash-card"><h4 style="font-family:'Montserrat',sans-serif;color:var(--blue);margin-bottom:8px">🏠 Accommodation Office</h4><p style="font-size:13px;color:#4A5568">Residence applications, room queries, maintenance requests.<br><strong>residence@malutitvet.co.za</strong></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="intranet-right">
+      <div class="right-section">
+        <div class="rs-title">Quick Access</div>
+        <div class="iq-links">
+          <div class="iq-link" onclick="alert('Opening Microsoft Teams...')"><div class="iq-link-icon">💬</div><div class="iq-link-text">Teams</div></div>
+          <div class="iq-link" onclick="alert('Opening OneDrive...')"><div class="iq-link-icon">☁️</div><div class="iq-link-text">OneDrive</div></div>
+          <div class="iq-link" onclick="alert('Opening Outlook email...')"><div class="iq-link-icon">📧</div><div class="iq-link-text">Email</div></div>
+          <div class="iq-link" onclick="setIntranetPage('documents',null)"><div class="iq-link-icon">📁</div><div class="iq-link-text">Documents</div></div>
+          <div class="iq-link" onclick="alert('Opening SharePoint calendar...')"><div class="iq-link-icon">📅</div><div class="iq-link-text">Calendar</div></div>
+          <div class="iq-link" onclick="alert('Opening Microsoft Forms...')"><div class="iq-link-icon">📝</div><div class="iq-link-text">Forms</div></div>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="rs-title">May 2026</div>
+        <table class="mini-cal">
+          <thead><tr><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th></tr></thead>
+          <tbody>
+            <tr><td></td><td></td><td></td><td></td><td class="today-cell">1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td><td>7</td><td class="has-event">8</td><td>9</td><td>10</td></tr>
+            <tr><td>11</td><td>12</td><td>13</td><td>14</td><td class="has-event">15</td><td>16</td><td>17</td></tr>
+            <tr><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+            <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:11px;color:#94A3B8;margin-top:8px">🟢 8 May: Assignment due · 15 May: Sports Day</div>
+      </div>
+      <div class="right-section">
+        <div class="rs-title">My Profile</div>
+        <div style="background:#F8FAFC;border-radius:12px;padding:1rem;text-align:center">
+          <div class="user-avatar" style="width:50px;height:50px;font-size:20px;margin:0 auto 10px">ST</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:#1E293B">Sipho Tladi</div>
+          <div style="font-size:12px;color:#64748B">Student No: 202601234</div>
+          <div style="font-size:12px;color:#64748B">N4 Electrical Engineering</div>
+          <div style="font-size:12px;color:#64748B">Main Campus · Phuthaditjhaba</div>
+          <button class="intranet-btn" style="margin-top:10px;width:100%;border:1px solid #E2E8F0;color:#4A5568;background:#F8FAFC" onclick="alert('Opening profile settings in SharePoint...')">Edit Profile</button>
+        </div>
+        <div class="sp-note" style="margin-top:12px">
+          <strong>🔗 Powered by SharePoint</strong>
+          This intranet integrates with Microsoft 365: Teams, OneDrive, Outlook, and SharePoint are all connected to your college account.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ===== PAGE NAV =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) { page.classList.add('active'); window.scrollTo(0,0); }
+  const nav = document.getElementById('nav-' + id);
+  if (nav) nav.classList.add('active');
+}
+
+// ===== MODAL =====
+function openModal() {
+  document.getElementById('applyModal').classList.add('open');
+  document.getElementById('modal-form-wrap').style.display = 'block';
+  document.getElementById('modal-success').style.display = 'none';
+}
+function closeModal() { document.getElementById('applyModal').classList.remove('open'); }
+document.getElementById('applyModal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+function submitModal() {
+  const f=document.getElementById('m-fname').value, e=document.getElementById('m-email').value, p=document.getElementById('m-prog').value;
+  if(!f||!e||!p){ alert('Please complete all required fields.'); return; }
+  document.getElementById('modal-form-wrap').style.display='none';
+  document.getElementById('modal-success').style.display='block';
+  setTimeout(closeModal,4000);
+}
+
+// ===== FORMS =====
+function submitQuickForm() { openModal(); }
+function submitContact() {
+  const msg=document.getElementById('c-msg')?.value||'';
+  if(!msg){ alert('Please write a message before submitting.'); return; }
+  alert('Thank you! Your message has been sent. We will respond within 1–2 business days.');
+  document.getElementById('c-fname').value='';
+  document.getElementById('c-msg').value='';
+}
+
+// ===== PROGRAMME FILTERS =====
+function filterProgs(btn,cat) {
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#home-prog-grid .prog-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}
+function filterChip(btn,cat) {
+  document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#full-prog-grid .prog-row').forEach(r=>{
+    const rc=r.dataset.cat||'', simple=cat.replace('-ac','');
+    r.style.display=(cat==='all-ac'||rc===simple)?'flex':'none';
+  });
+}
+function searchProgs(inp) {
+  const q=inp.value.toLowerCase();
+  document.querySelectorAll('#full-prog-grid .prog-row').forEach(r=>{
+    r.style.display=r.textContent.toLowerCase().includes(q)?'flex':'none';
+  });
+}
+
+// ===== CAMPUS SELECTOR =====
+function selectCampus(el,name,loc,phone,progs,facs) {
+  document.querySelectorAll('.campus-sel-card').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('cd-name').textContent=name;
+  document.getElementById('cd-loc').textContent=loc;
+  document.getElementById('cd-phone').textContent=phone;
+  document.getElementById('cd-progs').textContent=progs+' Offered';
+  document.getElementById('cd-map-lbl').textContent=loc.split(',')[0];
+  document.getElementById('cd-facs').innerHTML=facs.split(',').map(f=>`<span class="ctag">${f.trim()}</span>`).join('');
+}
+
+// ===== INTRANET NAV =====
+function setIntranetPage(page, btn) {
+  ['dashboard','courses','results','documents','finance','library','support'].forEach(p=>{
+    const el=document.getElementById('intranet-'+p);
+    if(el) el.style.display=p===page?'block':'none';
+  });
+  document.querySelectorAll('.intranet-nav-link').forEach(l=>l.classList.remove('in-active'));
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('s-active'));
+  if(btn) btn.classList.add('in-active');
+}
+
+// ===== SCROLL TOP =====
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);
+});
+
+// ===== INJECT LOGO =====
+(function injectLogo(){
+  const img = new Image();
+  img.onload = function() {
+    const c = document.createElement('canvas');
+    c.width=img.width; c.height=img.height;
+    c.getContext('2d').drawImage(img,0,0);
+    const b64 = c.toDataURL('image/png');
+    ['main-logo','footer-logo','intranet-logo'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.src=b64;
+    });
+  };
+  img.src='data:image/png;base64,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';
+})();
+</script>
+</body>
+</html>
